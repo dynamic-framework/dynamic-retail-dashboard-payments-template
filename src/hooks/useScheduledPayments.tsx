@@ -1,0 +1,81 @@
+import { useEffect, useState } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { setScheduledPayments } from '../store/slice';
+import { getScheduledPayments } from '../store/selectors';
+
+import { LANG } from '../config/i18nConfig';
+
+const scheduledEN = [
+  {
+    id: '1',
+    name: 'Water',
+    type: 'bills',
+    icon: 'water',
+    text: 'Account 7483719 • 22-09-22',
+    theme: 'blue',
+  },
+  {
+    id: '2',
+    name: 'Energy',
+    type: 'bills',
+    icon: 'lightbulb',
+    text: 'Account 7483719 • 22-09-22',
+    theme: 'blue',
+  },
+  {
+    id: '3',
+    name: 'Credit Card',
+    type: 'credit-card',
+    icon: 'credit-card',
+    text: '**** **** 5256 • 22-09-22',
+    theme: 'indigo',
+  },
+];
+
+const scheduledES = [
+  {
+    id: '1',
+    name: 'Agua',
+    type: 'bills',
+    icon: 'water',
+    text: 'Contrato 7483719 • 22-09-22',
+    theme: 'blue',
+  },
+  {
+    id: '2',
+    name: 'Energía',
+    type: 'bills',
+    icon: 'lightbulb',
+    text: 'Contrato 7483719 • 22-09-22',
+    theme: 'blue',
+  },
+  {
+    id: '3',
+    name: 'Tarjeta de Crédito',
+    type: 'credit-card',
+    icon: 'credit-card',
+    text: '**** **** 5256 • 22-09-22',
+    theme: 'indigo',
+  },
+];
+
+export default function useScheduledPayments() {
+  const [loading, setLoading] = useState(false);
+  const dispatch = useAppDispatch();
+  const scheduledPayments = useAppSelector(getScheduledPayments);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      const scheduled = LANG === 'es' ? scheduledES : scheduledEN;
+      dispatch(setScheduledPayments(scheduled));
+      setLoading(false);
+    }, 1000);
+  }, [dispatch]);
+
+  return {
+    loading,
+    scheduledPayments,
+  };
+}

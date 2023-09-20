@@ -1,0 +1,18 @@
+{
+  "title": "Pagos",
+  "product": {
+    "credit-card": "Tarjetas de credito",
+    "loan": "Créditos",
+    "bills": "Facturas",
+    "taxes": "Impuestos",
+    "social-security": "Seguridad social"
+  },
+  "scheduled": {
+    "title": "Programados",
+    "noPayments": "No tienes pagos programados"
+  },
+  "button": {
+    "pay": "Pagar",
+    "addPayment": "Inscribir pagos"
+  }
+}

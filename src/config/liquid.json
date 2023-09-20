@@ -1,0 +1,17 @@
+{
+  "site": {
+    "name": "My Site",
+    "language": "es",
+    "url": "https://un.modyo.cloud/testing"
+  },
+  "vars": {
+    "currency-symbol": "$",
+    "currency-precision": 2,
+    "currency-separator": ".",
+    "currency-decimal": ",",
+    "products-path": "products",
+    "api-user-id": "8a44df697ba7e4b3017ba9d3796315b5",
+    "api-path": "https://stoplight.io/mocks/modyo/dynamic/204091081",
+    "mock-products": true
+  }
+}
