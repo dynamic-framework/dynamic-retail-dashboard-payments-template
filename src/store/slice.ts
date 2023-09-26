@@ -1,9 +1,9 @@
-import { Product } from '@modyo-dynamic/modyo-service-retail';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Account } from '../services/interface';
 
 export type WidgetState = {
-  products: Product[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  accounts: Account[];
   otherCategories: Record<string, any>;
   scheduledPayments?: Array<Record<string, any>>;
 };
@@ -23,7 +23,7 @@ export const OTHER_CONFIG = {
 export type OtherConfigType = keyof typeof OTHER_CONFIG;
 
 const initialState = {
-  products: [],
+  accounts: [],
   otherCategories: {},
   scheduledPayments: [],
 } as WidgetState;
@@ -32,10 +32,9 @@ const slice = createSlice({
   name: 'widget',
   initialState,
   reducers: {
-    setProducts(state, action: PayloadAction<Array<Product>>) {
-      state.products = action.payload;
+    setAccounts(state, action: PayloadAction<Array<Account>>) {
+      state.accounts = action.payload;
     },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setOtherCategories(state, action: PayloadAction<Record<string, any>>) {
       state.otherCategories = action.payload;
     },
@@ -46,7 +45,7 @@ const slice = createSlice({
 });
 
 export const {
-  setProducts,
+  setAccounts,
   setOtherCategories,
   setScheduledPayments,
 } = slice.actions;
