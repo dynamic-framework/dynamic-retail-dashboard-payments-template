@@ -1,6 +1,6 @@
 {
   "title": "Payments",
-  "product": {
+  "account": {
     "credit-card": "Credit cards",
     "loan": "Loans",
     "bills": "Bills",
