@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { MCollapse } from '@dynamic-framework/ui-react';
+import { DCollapse } from '@dynamic-framework/ui-react';
 import OtherItem, { OtherItemType } from './OtherItem';
 
 interface Props {
@@ -11,12 +11,12 @@ export default function OtherCategory({ type, items }: Props) {
   const { t } = useTranslation();
 
   return (
-    <MCollapse
+    <DCollapse
       defaultCollapsed
       className="shadow-sm rounded"
       Component={(
         <h2 className="fs-6 py-2 text-gray-700 fw-bold text-truncate">
-          {t(`product.${type}`)}
+          {t(`account.${type}`)}
         </h2>
       )}
     >
@@ -25,6 +25,6 @@ export default function OtherCategory({ type, items }: Props) {
           <OtherItem key={item.id} item={item} type={type} />
         ))}
       </div>
-    </MCollapse>
+    </DCollapse>
   );
 }

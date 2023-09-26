@@ -2,10 +2,10 @@ import { useTranslation } from 'react-i18next';
 import CategoryList from './components/CategoryList';
 import ScheduledPayments from './components/ScheduledPayments';
 import SkeletonLoader from './components/SkeletonLoader';
-import useProductsByCategory from './hooks/useProductsByCategory';
+import useLoanAccountsCategorized from './services/hooks/useLoanAccountsCategorized';
 
 export default function App() {
-  const { loading } = useProductsByCategory();
+  const { loading } = useLoanAccountsCategorized();
   const { t } = useTranslation();
   return (
     <div className="container justify-content-center py-3">

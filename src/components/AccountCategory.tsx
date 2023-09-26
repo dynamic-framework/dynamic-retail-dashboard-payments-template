@@ -1,0 +1,31 @@
+import { DCollapse } from '@dynamic-framework/ui-react';
+import { useTranslation } from 'react-i18next';
+import AccountItem from './AccountItem';
+import { Account } from '../services/interface';
+
+interface Props {
+  type: string;
+  accounts: Array<Account>;
+}
+
+export default function AccountCategory({ type, accounts }: Props) {
+  const { t } = useTranslation();
+
+  return (
+    <DCollapse
+      className="shadow-sm rounded"
+      defaultCollapsed={!!accounts.length}
+      Component={(
+        <h2 className="fs-6 py-2 text-gray-700 fw-bold text-truncate">
+          {t(`account.${type}`)}
+        </h2>
+      )}
+    >
+      <div className="d-flex gap-3 flex-column">
+        {accounts.map((account) => (
+          <AccountItem key={account.id} account={account} />
+        ))}
+      </div>
+    </DCollapse>
+  );
+}

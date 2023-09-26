@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { MButton, MIcon } from '@dynamic-framework/ui-react';
+import { DButton, DIcon } from '@dynamic-framework/ui-react';
 import classnames from 'classnames';
 
-import { liquidParser } from '@dynamic-framework/ui';
 import { OTHER_CONFIG, OtherConfigType } from '../store/slice';
+import { SITE_URL } from '../config/widgetConfig';
 
 export type OtherItemType = {
   type: OtherConfigType;
@@ -22,14 +22,12 @@ export default function OtherItem({
 }: OtherItemType) {
   const { t } = useTranslation();
 
-  const productPath = useMemo(() => (
-    `${liquidParser.parse('{{site.url}}')}/`
-  ), []);
+  const accountPath = useMemo(() => SITE_URL, []);
 
   return (
     <a
       id={item.id}
-      href={productPath}
+      href={accountPath}
       className={classnames(
         'text-decoration-none text-body',
         'border-top',
@@ -38,7 +36,7 @@ export default function OtherItem({
       )}
     >
       <div className="d-flex gap-3 align-items-center w-100">
-        <MIcon
+        <DIcon
           hasCircle
           icon={item.icon}
           theme={OTHER_CONFIG[type].theme}
@@ -47,7 +45,7 @@ export default function OtherItem({
           <p className="fw-bold text-light-emphasis">{item.name}</p>
           <small className="text-light-emphasis">{item.text}</small>
         </div>
-        <MButton
+        <DButton
           text={t('button.pay')}
           theme="secondary"
           variant="link"
