@@ -1,45 +1,35 @@
 import { createDraftSafeSelector } from '@reduxjs/toolkit';
-import {
-  CategoriesConfig,
-} from '@modyo-dynamic/modyo-service-retail';
-import type {
-  Product,
-  ProductCategory,
-} from '@modyo-dynamic/modyo-service-retail';
 
 import { RootState } from './store';
+import { Account } from '../services/interface';
+import { AccountTypeConfig } from '../services/config';
 
 const getState = (state: RootState) => state.widget;
 
-export const getProducts = createDraftSafeSelector(
+export const getAccounts = createDraftSafeSelector(
   getState,
-  (widget) => widget.products,
+  (widget) => widget.accounts,
 );
 
-// TODO: move to common package, the dashboard uses this selector.
-export const getProductsByCategory = createDraftSafeSelector(
-  getProducts,
+export const getAccountsByCategory = createDraftSafeSelector(
+  getAccounts,
   (data) => (
     (Object.values(
-      data.reduce((categorized, product: Product) => {
-        const category = categorized[product.type];
-        const { products = [] } = category;
+      data.reduce((categorized, account: Account) => {
+        const category = categorized[account.type];
+        const { accounts = [] } = category;
         return {
           ...categorized,
-          [product.type]: {
+          [account.type]: {
             ...category,
-            products: [
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-              ...products,
-              product,
+            accounts: [
+              ...accounts,
+              account,
             ],
           },
         };
-      }, CategoriesConfig),
-    ) as Array<ProductCategory>)
-      .filter((productCategory: ProductCategory) => (
-        ['loan', 'credit-card'].includes(productCategory.type)
-      ))
+      }, AccountTypeConfig),
+    ))
   ),
 );
 

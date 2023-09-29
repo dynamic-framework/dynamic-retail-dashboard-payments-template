@@ -1,6 +1,6 @@
 {
   "title": "Pagos",
-  "product": {
+  "account": {
     "credit-card": "Tarjetas de credito",
     "loan": "Créditos",
     "bills": "Facturas",

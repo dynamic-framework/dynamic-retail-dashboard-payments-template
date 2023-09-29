@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { setScheduledPayments } from '../store/slice';
-import { getScheduledPayments } from '../store/selectors';
-
-import { LANG } from '../config/i18nConfig';
+import { LANG } from '../../config/i18nConfig';
+import { setScheduledPayments } from '../../store/slice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { getScheduledPayments } from '../../store/selectors';
 
 const scheduledEN = [
   {

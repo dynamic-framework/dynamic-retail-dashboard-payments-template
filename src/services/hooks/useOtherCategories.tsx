@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { setOtherCategories } from '../store/slice';
-import { getOtherCategories } from '../store/selectors';
-
-import { LANG } from '../config/i18nConfig';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { setOtherCategories } from '../../store/slice';
+import { getOtherCategories } from '../../store/selectors';
+import { LANG } from '../../config/i18nConfig';
 
 const othersEN = {
   bills: {

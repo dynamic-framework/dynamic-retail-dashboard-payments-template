@@ -1,7 +1,6 @@
-import { MButton, MQuickActionButton } from '@dynamic-framework/ui-react';
+import { DButton, DQuickActionButton } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
-
-import useScheduledPayments from '../hooks/useScheduledPayments';
+import useScheduledPayments from '../services/hooks/useScheduledPayments';
 
 export default function ScheduledPayments() {
   const { t } = useTranslation();
@@ -21,7 +20,7 @@ export default function ScheduledPayments() {
         {scheduledPayments && (
           <div className="d-flex flex-column gap-2">
             {scheduledPayments.map((item: Record<string, string>) => (
-              <MQuickActionButton
+              <DQuickActionButton
                 line1={item.name}
                 line2={item.text}
                 representativeIcon={item.icon}
@@ -32,7 +31,7 @@ export default function ScheduledPayments() {
             ))}
           </div>
         )}
-        <MButton
+        <DButton
           className="d-grid"
           text={t('button.addPayment')}
           isPill

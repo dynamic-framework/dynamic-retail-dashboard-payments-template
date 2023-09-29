@@ -1,27 +1,27 @@
-import useOtherCategories from '../hooks/useOtherCategories';
+import useOtherCategories from '../services/hooks/useOtherCategories';
 import { useAppSelector } from '../store/hooks';
-import { getProductsByCategory } from '../store/selectors';
+import { getAccountsByCategory } from '../store/selectors';
 import { OtherConfigType } from '../store/slice';
 import OtherCategory from './OtherCategory';
 import { OtherItemType } from './OtherItem';
-import ProductCategory from './ProductCategory';
+import AccountCategory from './AccountCategory';
 
 export default function CategoryList() {
-  const categories = useAppSelector(getProductsByCategory);
+  const categories = useAppSelector(getAccountsByCategory);
   const { otherCategories } = useOtherCategories();
 
   return (
     <div className="d-flex flex-column gap-4">
       {categories.map((category) => {
-        if (!category.products.length) {
+        if (!category.accounts.length) {
           return null;
         }
 
         return (
-          <ProductCategory
+          <AccountCategory
             key={category.id}
             type={category.type}
-            products={category.products}
+            accounts={category.accounts}
           />
         );
       })}
