@@ -1,19 +1,50 @@
-# Modyo widget template - React
+# Dynamic retail dashboard payments template - React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requirements:
+- Node@18+
+- npm@9+
+- @modyo/cli@latest
 
-## Initial settings for a new widget
+## Installation and initial setup
+The best way to install this template is using the [modyo-cli](https://docs.modyo.com/en/platform/channels/cli.html)
+```console
+npx @modyo/cli@latest get dynamic-retail-dashboard-payments-template my-project
+cd my-project
+npm i
+npm run start
+```
 
-1. Rename the `package.json` with the name of widget
-2. Change the root id in `public/index.html` and `src/index.tsx`
+### Setup
+1. Change the property name in `package.json` to the name of your project
+2. Change the root `id` in `public/index.html:32` and `src/index.tsx:15`
 
-**Note: The root id will be unique in your site**
+**Note**: The root id should be _unique_ in your site and it should be written in camelCase.
+
+## Deployment to Modyo and CI
+To be able to deploy to Modyo configure the following variables in an `.env` file or as part of the Continuous Integration:
+```yaml
+# The url base of the organization in Modyo
+MODYO_ACCOUNT_URL=https://my-org.modyo.cloud/
+# Where you will deploy your micro frontend, you can use either the host or the ID but not both.
+# MODYO_SITE_HOST=my-site
+MODYO_SITE_ID=65
+# The token authorizing the deployment, taken from Modyo
+TOKEN=gT0ogW43lSy4nV9cYtc_hH0i_sUNq01q-12ptFzoW8
+# The major version of the Modyo platform where the deployment will take place (8 or 9)
+VERSION=9
+# The name of the directory that contains the bundle of the micro frontend
+BUILD_DIRECTORY=build
+# The name that will identify your Micro Frontend in Modyo
+WIDGET_NAME=my-project
+# This directive is necessary to safely remove some libraries from the liquid parser
+MODYO_DISABLE_LIQUID_REGEX=raw
+```
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `pnpm start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -21,12 +52,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `pnpm test`
+### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `pnpm build`
+### `npm build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -36,7 +67,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `pnpm eject`
+### `npm eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
