@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import CategoryList from './components/CategoryList';
 import ScheduledPayments from './components/ScheduledPayments';
 import SkeletonLoader from './components/SkeletonLoader';
@@ -8,7 +9,7 @@ export default function App() {
   const { loading } = useLoanAccountsCategorized();
   const { t } = useTranslation();
   return (
-    <div className="container justify-content-center py-3">
+    <div className="py-3">
       {loading
         ? <SkeletonLoader />
         : (
