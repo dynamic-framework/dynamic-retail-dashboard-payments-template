@@ -2,17 +2,17 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DButton, DIcon } from '@dynamic-framework/ui-react';
 import classnames from 'classnames';
-import { Account } from '../services/interface';
+
 import { AccountTypeConfig } from '../services/config';
 import { SITE_PATH, SITE_URL } from '../config/widgetConfig';
+
+import type { Account } from '../services/interface';
 
 interface Props {
   account: Account;
 }
 
-export default function AccountItem({
-  account,
-}: Props) {
+export default function AccountItem({ account }: Props) {
   const { t } = useTranslation();
 
   const accountPath = useMemo(

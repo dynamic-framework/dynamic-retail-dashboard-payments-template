@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { DButton, DIcon } from '@dynamic-framework/ui-react';
 import classnames from 'classnames';
 
-import { OTHER_CONFIG, OtherConfigType } from '../store/slice';
+import { OTHER_CONFIG } from '../store/slice';
 import { SITE_URL } from '../config/widgetConfig';
+
+import type { OtherConfigType } from '../store/slice';
 
 export type OtherItemType = {
   type: OtherConfigType;

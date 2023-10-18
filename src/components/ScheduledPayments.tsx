@@ -1,5 +1,6 @@
 import { DButton, DQuickActionButton } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
+
 import useScheduledPayments from '../services/hooks/useScheduledPayments';
 
 export default function ScheduledPayments() {

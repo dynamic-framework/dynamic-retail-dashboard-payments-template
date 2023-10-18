@@ -1,6 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { DCollapse } from '@dynamic-framework/ui-react';
-import OtherItem, { OtherItemType } from './OtherItem';
+
+import OtherItem from './OtherItem';
+
+import type { OtherItemType } from './OtherItem';
 
 interface Props {
   type: OtherItemType['type'];
