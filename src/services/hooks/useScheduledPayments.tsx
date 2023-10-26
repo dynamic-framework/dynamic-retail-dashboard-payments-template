@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { LANG } from '../../config/i18nConfig';
+import { SITE_LANG } from '../../config/widgetConfig';
 import { setScheduledPayments } from '../../store/slice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getScheduledPayments } from '../../store/selectors';
@@ -67,7 +67,7 @@ export default function useScheduledPayments() {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      const scheduled = LANG === 'es' ? scheduledES : scheduledEN;
+      const scheduled = SITE_LANG === 'es' ? scheduledES : scheduledEN;
       dispatch(setScheduledPayments(scheduled));
       setLoading(false);
     }, 1000);
