@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setOtherCategories } from '../../store/slice';
 import { getOtherCategories } from '../../store/selectors';
-import { LANG } from '../../config/i18nConfig';
+import { SITE_LANG } from '../../config/widgetConfig';
 
 const othersEN = {
   bills: {
@@ -133,7 +133,7 @@ export default function useOtherCategories() {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      const others = LANG === 'es' ? othersES : othersEN;
+      const others = SITE_LANG === 'es' ? othersES : othersEN;
       dispatch(setOtherCategories(others));
       setLoading(false);
     }, 1000);
