@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -11,7 +10,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store';
 
-import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
+if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line global-require
+  require('@dynamic-framework/ui-react/dist/css/dynamic-ui.css');
+}
 
 const root = ReactDOM.createRoot(document.getElementById('dashboardPaymentsTemplate') as Element);
 root.render(
