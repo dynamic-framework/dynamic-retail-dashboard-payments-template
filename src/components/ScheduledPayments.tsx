@@ -35,7 +35,7 @@ export default function ScheduledPayments() {
         <DButton
           className="d-grid"
           text={t('button.addPayment')}
-          isPill
+          pill
         />
       </div>
     </div>
