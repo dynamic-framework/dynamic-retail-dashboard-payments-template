@@ -23,7 +23,7 @@ export default function OtherCategory({ type, items }: Props) {
         </h2>
       )}
     >
-      <div className="d-flex flex-column gap-3">
+      <div className="d-flex flex-column gap-4">
         {items.map((item) => (
           <OtherItem key={item.id} item={item} type={type} />
         ))}

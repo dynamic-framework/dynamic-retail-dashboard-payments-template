@@ -34,10 +34,10 @@ export default function OtherItem({
         'text-decoration-none text-body',
         'border-top',
         'pt-3',
-        'd-flex flex-column flex-lg-row gap-3 justify-content-between pe-none',
+        'd-flex flex-column flex-lg-row gap-4 justify-content-between pe-none',
       )}
     >
-      <div className="d-flex gap-3 align-items-center w-100">
+      <div className="d-flex gap-4 align-items-center w-100">
         <DIcon
           hasCircle
           icon={item.icon}
