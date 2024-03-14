@@ -38,7 +38,7 @@ export default function AccountItem({ account }: Props) {
           theme={AccountTypeConfig[account.type].theme}
         />
         <div className="d-flex flex-column flex-grow-1">
-          <p className="fw-bold text-light-emphasis">{account.alias ?? account.name}</p>
+          <p className="mb-0 fw-bold text-light-emphasis">{account.alias ?? account.name}</p>
           <small className="text-light-emphasis">{account.accountNumber}</small>
         </div>
         <DButton

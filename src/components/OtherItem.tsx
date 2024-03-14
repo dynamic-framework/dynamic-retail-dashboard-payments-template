@@ -44,7 +44,7 @@ export default function OtherItem({
           theme={OTHER_CONFIG[type].theme}
         />
         <div className="d-flex flex-column flex-grow-1">
-          <p className="fw-bold text-light-emphasis">{item.name}</p>
+          <p className="mb-0 fw-bold text-light-emphasis">{item.name}</p>
           <small className="text-light-emphasis">{item.text}</small>
         </div>
         <DButton
