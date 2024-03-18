@@ -1,4 +1,4 @@
-import { createDraftSafeSelector } from '@reduxjs/toolkit';
+import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from './store';
 import { Account } from '../services/interface';
@@ -6,12 +6,12 @@ import { AccountTypeConfig } from '../services/config';
 
 const getState = (state: RootState) => state.widget;
 
-export const getAccounts = createDraftSafeSelector(
+export const getAccounts = createSelector(
   getState,
   (widget) => widget.accounts,
 );
 
-export const getAccountsByCategory = createDraftSafeSelector(
+export const getAccountsByCategory = createSelector(
   getAccounts,
   (data) => (
     (Object.values(
@@ -33,12 +33,12 @@ export const getAccountsByCategory = createDraftSafeSelector(
   ),
 );
 
-export const getOtherCategories = createDraftSafeSelector(
+export const getOtherCategories = createSelector(
   getState,
   (widget) => widget.otherCategories,
 );
 
-export const getScheduledPayments = createDraftSafeSelector(
+export const getScheduledPayments = createSelector(
   getState,
   (widget) => widget.scheduledPayments,
 );

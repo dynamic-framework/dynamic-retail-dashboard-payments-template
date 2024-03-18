@@ -8,13 +8,13 @@ export default function ScheduledPayments() {
   const { scheduledPayments } = useScheduledPayments();
 
   return (
-    <div className="d-block bg-light rounded p-3">
-      <div className="d-flex flex-column gap-3">
+    <div className="d-block bg-light rounded p-4">
+      <div className="d-flex flex-column gap-4">
         <h2 className="fs-5 fw-bold mx-2">
           {t('scheduled.title')}
         </h2>
         {(!scheduledPayments || !scheduledPayments.length) && (
-          <div className="text-center pt-3">
+          <div className="text-center pt-4">
             {t('scheduled.noPayments')}
           </div>
         )}
