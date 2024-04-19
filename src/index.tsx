@@ -18,11 +18,11 @@ if (process.env.NODE_ENV === 'development') {
 const root = ReactDOM.createRoot(document.getElementById('dashboardPaymentsTemplate') as Element);
 root.render(
   <React.StrictMode>
-    <DContextProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <DContextProvider>
         <App />
-      </Provider>
-    </DContextProvider>
+      </DContextProvider>
+    </Provider>
   </React.StrictMode>,
 );
 

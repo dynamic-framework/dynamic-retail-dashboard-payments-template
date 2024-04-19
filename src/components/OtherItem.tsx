@@ -33,18 +33,18 @@ export default function OtherItem({
       className={classnames(
         'text-decoration-none text-body',
         'border-top',
-        'pt-3',
-        'd-flex flex-column flex-lg-row gap-3 justify-content-between pe-none',
+        'pt-4',
+        'd-flex flex-column flex-lg-row gap-4 justify-content-between pe-none',
       )}
     >
-      <div className="d-flex gap-3 align-items-center w-100">
+      <div className="d-flex gap-4 align-items-center w-100">
         <DIcon
           hasCircle
           icon={item.icon}
           theme={OTHER_CONFIG[type].theme}
         />
         <div className="d-flex flex-column flex-grow-1">
-          <p className="fw-bold text-light-emphasis">{item.name}</p>
+          <p className="mb-0 fw-bold text-light-emphasis">{item.name}</p>
           <small className="text-light-emphasis">{item.text}</small>
         </div>
         <DButton

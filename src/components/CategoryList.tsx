@@ -12,7 +12,7 @@ export default function CategoryList() {
   const { otherCategories } = useOtherCategories();
 
   return (
-    <div className="d-flex flex-column gap-4">
+    <div className="d-flex flex-column gap-6">
       {categories.map((category) => {
         if (!category.accounts.length) {
           return null;
