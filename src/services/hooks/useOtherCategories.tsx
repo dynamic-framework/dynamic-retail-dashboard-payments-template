@@ -2,145 +2,205 @@ import { useEffect, useState } from 'react';
 
 import { SITE_LANG } from '../../config/widgetConfig';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { getOtherCategories } from '../../store/selectors';
-import { setOtherCategories } from '../../store/slice';
+import { getServices, getPayDates } from '../../store/selectors';
+import { setPayDates, setServices } from '../../store/slice';
 
-const othersEN = {
-  bills: {
-    type: 'bills',
-    items: [
-      {
-        id: '1',
-        name: 'Water',
-        icon: 'water',
-        text: 'Account 7483719 • Payment due by 22-09-22',
-      },
-      {
-        id: '2',
-        name: 'Light ',
-        icon: 'lightbulb',
-        text: 'Account 7483719 • Payment due by 22-09-22',
-      },
-      {
-        id: '3',
-        name: 'Gas',
-        icon: 'fire',
-        text: 'Account 7483719 • Payment due by 22-09-22',
-      },
-    ],
+const payDatesES = [
+  {
+    label: 'Primer día del mes',
+    value: '1',
   },
-  taxes: {
-    type: 'taxes',
-    items: [
-      {
-        id: '11',
-        name: 'Household',
-        icon: 'house',
-        text: 'Registration number 7483719',
-      },
-      {
-        id: '12',
-        name: 'Vehicle',
-        icon: 'car-front',
-        text: 'Registration 7483719',
-      },
-    ],
+  {
+    label: '5 de cada mes',
+    value: '5',
   },
-  'social-security': {
-    type: 'social-security',
-    items: [
-      {
-        id: '21',
-        name: 'Health',
-        icon: 'heart-pulse',
-        text: 'EPS Sura',
-      },
-      {
-        id: '22',
-        name: 'Pension',
-        icon: 'safe',
-        text: 'Protección fondo de pensiones',
-      },
-    ],
+  {
+    label: '15 de cada mes',
+    value: '15',
   },
-};
+];
 
-const othersES = {
-  bills: {
-    type: 'bills',
+const payDatesEN = [
+  {
+    label: 'First day of the month',
+    value: '1',
+  },
+  {
+    label: '5th of the month',
+    value: '5',
+  },
+  {
+    label: '15th of the month',
+    value: '15',
+  },
+];
+
+const servicesES = [
+  {
+    label: 'Agua',
+    value: 'water',
     items: [
       {
-        id: '1',
-        name: 'Agua',
-        icon: 'water',
-        text: 'Contrato 7483719 • Fecha maxíma de pago 22-09-22',
+        label: 'Dynamic Water',
+        value: 'Dynamic Water',
       },
       {
-        id: '2',
-        name: 'Luz',
-        icon: 'lightbulb',
-        text: 'Contrato 7483719 • Fecha maxíma de pago 22-09-22',
-      },
-      {
-        id: '3',
-        name: 'Gas',
-        icon: 'fire',
-        text: 'Contrato 7483719 • Fecha maxíma de pago 22-09-22',
+        label: 'Water Company',
+        value: 'Water Company',
       },
     ],
   },
-  taxes: {
-    type: 'taxes',
+  {
+    label: 'Luz',
+    value: 'lightbulb',
     items: [
       {
-        id: '11',
-        name: 'Vivienda',
-        icon: 'house',
-        text: 'Matrícula inmoviliaria 7483719',
+        label: 'Dynamic Light',
+        value: 'Dynamic Light',
       },
       {
-        id: '12',
-        name: 'Vehículo',
-        icon: 'car-front',
-        text: 'Matrícula 7483719',
+        label: 'Light Company',
+        value: 'Light Company',
       },
     ],
   },
-  'social-security': {
-    type: 'social-security',
+  {
+    label: 'Gas',
+    value: 'fire',
     items: [
       {
-        id: '21',
-        name: 'Salud',
-        icon: 'heart-pulse',
-        text: 'EPS Sura',
+        label: 'Dynamic Gas',
+        value: 'Dynamic Gas',
       },
       {
-        id: '22',
-        name: 'Pensión',
-        icon: 'safe',
-        text: 'Protección fondo de pensiones',
+        label: 'Gas Company',
+        value: 'Gas Company',
       },
     ],
   },
-};
+  {
+    label: 'Internet',
+    value: 'wifi',
+    items: [
+      {
+        label: 'Dynamic Internet',
+        value: 'Dynamic Internet',
+      },
+      {
+        label: 'Internet Company',
+        value: 'Internet Company',
+      },
+    ],
+  },
+  {
+    label: 'Telefono',
+    value: 'telephone-fill',
+    items: [
+      {
+        label: 'Dynamic Phone',
+        value: 'Dynamic Phone',
+      },
+      {
+        label: 'Phone Company',
+        value: 'Phone Company',
+      },
+    ],
+  },
+];
+
+const servicesEN = [
+  {
+    label: 'Water',
+    value: 'water',
+    items: [
+      {
+        label: 'Dynamic Water',
+        value: 'Dynamic Water',
+      },
+      {
+        label: 'Water Company',
+        value: 'Water Company',
+      },
+    ],
+  },
+  {
+    label: 'Light',
+    value: 'lightbulb',
+    items: [
+      {
+        label: 'Dynamic Light',
+        value: 'Dynamic Light',
+      },
+      {
+        label: 'Light Company',
+        value: 'Light Company',
+      },
+    ],
+  },
+  {
+    label: 'Gas',
+    value: 'fire',
+    items: [
+      {
+        label: 'Dynamic Gas',
+        value: 'Dynamic Gas',
+      },
+      {
+        label: 'Gas Company',
+        value: 'Gas Company',
+      },
+    ],
+  },
+  {
+    label: 'Internet',
+    value: 'wifi',
+    items: [
+      {
+        label: 'Dynamic Internet',
+        value: 'Dynamic Internet',
+      },
+      {
+        label: 'Internet Company',
+        value: 'Internet Company',
+      },
+    ],
+  },
+  {
+    label: 'Phone',
+    value: 'telephone-fill',
+    items: [
+      {
+        label: 'Dynamic Phone',
+        value: 'Dynamic Phone',
+      },
+      {
+        label: 'Phone Company',
+        value: 'Phone Company',
+      },
+    ],
+  },
+];
 
 export default function useOtherCategories() {
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
-  const otherCategories = useAppSelector(getOtherCategories);
+  const payDates = useAppSelector(getPayDates);
+  const services = useAppSelector(getServices);
 
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      const others = SITE_LANG === 'es' ? othersES : othersEN;
-      dispatch(setOtherCategories(others));
+      const localPayDates = SITE_LANG === 'es' ? payDatesES : payDatesEN;
+      dispatch(setPayDates(localPayDates));
+      const localServices = SITE_LANG === 'es' ? servicesES : servicesEN;
+      dispatch(setServices(localServices));
       setLoading(false);
-    }, 1000);
+    }, 10);
   }, [dispatch]);
 
   return {
     loading,
-    otherCategories,
+    payDates,
+    services,
   };
 }

@@ -14,5 +14,41 @@
   "button": {
     "pay": "Pagar",
     "addPayment": "Inscribir pagos"
+  },
+  "features": {
+    "title": "Otras funciones de pago",
+    "newPayment": "Agregar nuevo pago",
+    "recharges": "Recargas telefónica y transporte",
+    "preauthorized": "Pagos preautorizados",
+    "history": "Historial de pagos",
+    "onetime": "Pago único"
+  },
+  "bills": {
+    "title": "Facturas",
+    "clientNumber": "Número de cliente",
+    "service": "Serivio",
+    "company": "Compañia",
+    "nickname": "Alias",
+    "preview": "Ver pagos previos",
+    "next": "Próximo pago el ",
+    "paid": "Último pago de",
+    "on": "el",
+    "expiration": "vence el",
+    "total": "Total a pagar",
+    "noDebt": "No hay deuda",
+    "detail": "Mas detalles",
+    "billDetails": "Detalles de la factura",
+    "previousPayments": "Últimos pagos",
+    "id": "Identificador",
+    "date": "Fecha",
+    "amount": "Monto",
+    "manualPayment": "Pago manual",
+    "automaticPayment": "Pago automatico",
+    "payday": "Día de pago",
+    "endMandate": "Fin del mandato"
+  },
+  "utilities": {
+    "save": "Guardar",
+    "successSave":"Los datos de la cuenta se han guardado correctamente"
   }
 }

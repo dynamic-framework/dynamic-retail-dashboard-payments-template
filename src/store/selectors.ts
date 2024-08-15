@@ -12,6 +12,11 @@ export const getAccounts = createSelector(
   (widget) => widget.accounts,
 );
 
+export const getBills = createSelector(
+  getState,
+  (widget) => widget.bills,
+);
+
 export const getAccountsByCategory = createSelector(
   getAccounts,
   (data) => (
@@ -37,6 +42,16 @@ export const getAccountsByCategory = createSelector(
 export const getOtherCategories = createSelector(
   getState,
   (widget) => widget.otherCategories,
+);
+
+export const getPayDates = createSelector(
+  getState,
+  (widget) => widget.payDates,
+);
+
+export const getServices = createSelector(
+  getState,
+  (widget) => widget.services,
 );
 
 export const getScheduledPayments = createSelector(
