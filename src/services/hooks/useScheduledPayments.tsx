@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import { SITE_LANG } from '../../config/widgetConfig';
-import { setScheduledPayments } from '../../store/slice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getScheduledPayments } from '../../store/selectors';
+import { setScheduledPayments } from '../../store/slice';
 
 const scheduledEN = [
   {

@@ -1,15 +1,12 @@
-import useOtherCategories from '../services/hooks/useOtherCategories';
 import { useAppSelector } from '../store/hooks';
-import { getAccountsByCategory } from '../store/selectors';
-import OtherCategory from './OtherCategory';
-import AccountCategory from './AccountCategory';
+import { getAccountsByCategory, getBills } from '../store/selectors';
 
-import type { OtherItemType } from './OtherItem';
-import type { OtherConfigType } from '../store/slice';
+import AccountCategory from './AccountCategory';
+import BillCategory from './BillCategory';
 
 export default function CategoryList() {
   const categories = useAppSelector(getAccountsByCategory);
-  const { otherCategories } = useOtherCategories();
+  const bills = useAppSelector(getBills);
 
   return (
     <div className="d-flex flex-column gap-6">
@@ -26,14 +23,9 @@ export default function CategoryList() {
           />
         );
       })}
-      {Object.keys(otherCategories).map((key) => (
-        <OtherCategory
-          key={key}
-          type={key as OtherConfigType}
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          items={otherCategories[key].items as Array<OtherItemType['item']>}
-        />
-      ))}
+      <BillCategory
+        bills={bills}
+      />
     </div>
   );
 }

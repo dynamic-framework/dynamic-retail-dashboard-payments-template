@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 
-import { AccountRepository } from '../repositories';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { getAccounts } from '../../store/selectors';
-import { setAccounts } from '../../store/slice';
+import { getAccounts, getBills } from '../../store/selectors';
+import { setAccounts, setBills } from '../../store/slice';
 import errorHandler from '../../utils/errorHandler';
+import { AccountRepository, BillRepository } from '../repositories';
 
 export default function useLoanAccountsCategorized() {
   const [loading, setLoading] = useState(false);
   const accounts = useAppSelector(getAccounts);
+  const bills = useAppSelector(getBills);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,8 +17,10 @@ export default function useLoanAccountsCategorized() {
     (async () => {
       try {
         setLoading(true);
-        const data = await AccountRepository.list({ abortSignal: abortController.signal });
-        dispatch(setAccounts(data));
+        const accountsList = await AccountRepository.list({ abortSignal: abortController.signal });
+        dispatch(setAccounts(accountsList));
+        const billsList = await BillRepository.list({ abortSignal: abortController.signal });
+        dispatch(setBills(billsList));
         setLoading(false);
       } catch (error) {
         errorHandler(error);
@@ -31,5 +34,6 @@ export default function useLoanAccountsCategorized() {
   return {
     loading,
     accounts,
+    bills,
   };
 }

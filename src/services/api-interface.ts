@@ -11,8 +11,8 @@ export type ApiAccountAccountType = 'LOAN' | 'CREDIT_CARD';
 export type ApiAccountType = 'LOAN';
 
 export type ApiAccount = {
-  id: string;
-  nickName: string;
+  id: number;
+  alias: string;
   accountNumber: string;
   type: ApiAccountType;
   accountType: ApiAccountAccountType;
@@ -39,9 +39,9 @@ export type ApiDepositDetails = {
     limit: number;
     total: number;
     available: number;
-    expiryDate: string; // ISO8601
+    expiryDate: string;
   };
-  maturityDate?: string; // ISO8601
+  maturityDate?: string;
   interest: {
     accrued: number;
     accruedNegative: number;
@@ -53,9 +53,37 @@ export type ApiDepositDetails = {
         source?: string;
       };
       paymentPoint: string;
-      paymentDates: Array<Record<string, unknown>>;
+      paymentDates?: PaymentDates;
     }
   }
+};
+
+export type PaymentDates = {
+  id: number,
+  payDate: string,
+  amount: number,
+};
+
+export type ApiBill = {
+  id: number,
+  service: string,
+  company: string,
+  nickname: string,
+  icon: string,
+  clientID: string,
+  text: string,
+  payDate: string,
+  amount: number,
+  automaticPayment: boolean,
+  paid: boolean,
+  paidDate: string,
+  previousPayments?: PreviousPayment;
+};
+
+export type PreviousPayment = {
+  id: number,
+  payDate: string,
+  amount: number,
 };
 
 export type ApiLoanDetails = {

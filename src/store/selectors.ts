@@ -1,14 +1,20 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { RootState } from './store';
-import { Account } from '../services/interface';
 import { AccountTypeConfig } from '../services/config';
+import { Account } from '../services/interface';
+
+import { RootState } from './store';
 
 const getState = (state: RootState) => state.widget;
 
 export const getAccounts = createSelector(
   getState,
   (widget) => widget.accounts,
+);
+
+export const getBills = createSelector(
+  getState,
+  (widget) => widget.bills,
 );
 
 export const getAccountsByCategory = createSelector(
@@ -36,6 +42,16 @@ export const getAccountsByCategory = createSelector(
 export const getOtherCategories = createSelector(
   getState,
   (widget) => widget.otherCategories,
+);
+
+export const getPayDates = createSelector(
+  getState,
+  (widget) => widget.payDates,
+);
+
+export const getServices = createSelector(
+  getState,
+  (widget) => widget.services,
 );
 
 export const getScheduledPayments = createSelector(

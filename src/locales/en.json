@@ -14,5 +14,41 @@
   "button": {
     "pay": "Pay",
     "addPayment": "Add payment"
+  },
+  "features": {
+    "title": "Other payment features",
+    "newPayment": "Add new Payment",
+    "recharges": "Phone and transport recharges",
+    "preauthorized": "Pre-authorized payments",
+    "history": "Payments history",
+    "onetime": "One time payment"
+  },
+  "bills": {
+    "title": "Bills",
+    "clientNumber": "Client number",
+    "service": "Service",
+    "company": "Company",
+    "nickname": "Nickname",
+    "preview": "See preview payments",
+    "next": "Next payment on",
+    "paid": "Last payment of",
+    "on": "on",
+    "expiration": "expiration at",
+    "total": "Total to pay",
+    "noDebt": "There is no debt",
+    "detail": "More details",
+    "billDetails": "Bill details",
+    "previousPayments": "Previous payments",
+    "id": "Identifier",
+    "date": "Date",
+    "amount": "Amount",
+    "manualPayment": "Manual bill payment",
+    "automaticPayment": "Automatic bill payment",
+    "payday": "Pay day",
+    "endMandate": "End of mandate"
+  },
+  "utilities": {
+    "save": "Save",
+    "successSave":"The account data has been saved successfully"
   }
 }

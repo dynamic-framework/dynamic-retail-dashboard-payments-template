@@ -1,11 +1,10 @@
-import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { DButton, DIcon } from '@dynamic-framework/ui-react';
 import classnames from 'classnames';
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { AccountTypeConfig } from '../services/config';
 import { SITE_PATH, SITE_URL } from '../config/widgetConfig';
-
+import { AccountTypeConfig } from '../services/config';
 import type { Account } from '../services/interface';
 
 interface Props {
@@ -44,8 +43,7 @@ export default function AccountItem({ account }: Props) {
         <DButton
           text={t('button.pay')}
           theme="secondary"
-          variant="link"
-          className="text-decoration-underline"
+          size="sm"
         />
       </div>
     </a>
