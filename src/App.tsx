@@ -2,9 +2,12 @@ import CategoryList from './components/CategoryList';
 import DashboardFeatures from './components/DashboardFeatures';
 import SkeletonLoader from './components/SkeletonLoader';
 import useLoanAccountsCategorized from './services/hooks/useLoanAccountsCategorized';
+import useOtherCategories from './services/hooks/useOtherCategories';
 
 export default function App() {
   const { loading } = useLoanAccountsCategorized();
+  useOtherCategories();
+
   return (
     <div className="py-4">
       {loading

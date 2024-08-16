@@ -33,7 +33,7 @@ export type Bill = {
   amount: number,
   automaticPayment: boolean,
   paid: boolean,
-  paidDate: string | null,
+  paidDate?: string | null,
   previousPayments?: PaymentDates[];
 };
 
@@ -59,7 +59,7 @@ export type Transaction = {
 export type ServiceItem = {
   label: string;
   value: string;
-  items: Company[];
+  companies: Company[];
 };
 
 export type Company = {

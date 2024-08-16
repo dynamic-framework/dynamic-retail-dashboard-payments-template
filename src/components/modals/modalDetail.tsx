@@ -12,9 +12,10 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useOtherCategories from '../../services/hooks/useOtherCategories';
-import { AvailablePortal, PayDateOption } from '../../services/interface';
+import { AvailablePortal } from '../../services/interface';
 import { toastMessage } from '../toast/toastMessage';
 
+// Change name to something more descriptive and change file name to match convention
 export default function ModalDetail({
   payload: {
     bill,
@@ -119,7 +120,7 @@ export default function ModalDetail({
                 id="payday"
                 disabled={!automaticPayment}
                 label={t('bills.payday')}
-                options={payDates.items as PayDateOption[]}
+                options={payDates}
               />
             </div>
           </div>

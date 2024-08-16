@@ -8,7 +8,7 @@ import {
   useDToast,
 } from '@dynamic-framework/ui-react';
 import { Formik } from 'formik';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 
@@ -16,6 +16,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getPayDates, getServices } from '../../store/selectors';
 import { addBill } from '../../store/slice';
 import { toastMessage } from '../toast/toastMessage';
+// import { Company, ServiceItem } from '../../services/interface';
 
 const NewBillSchema = Yup.object().shape({
   service: Yup.string(),
@@ -24,7 +25,8 @@ const NewBillSchema = Yup.object().shape({
   nickname: Yup.string().required('Nickname is required'),
   payDate: Yup.string(),
 });
-export default function ModalNew() {
+
+export default function ModalNewPayment() {
   const { closePortal } = useDPortalContext();
   const { t } = useTranslation();
   const payDates = useAppSelector(getPayDates);
@@ -32,28 +34,31 @@ export default function ModalNew() {
   const { toast } = useDToast();
   const dispatch = useAppDispatch();
 
-  const initialService = useMemo(() => (services[0]), [services]);
+  const [selectedService, setSelectedService] = useState(services[0] || []);
+  const [selectedCompany, setSelectedCompany] = useState(services[0].companies[0]);
 
-  const [companyOptions, setCompanyOptions] = useState(initialService?.items);
+  const [companyOptions, setCompanyOptions] = useState(selectedService?.companies || []);
 
   useEffect(() => {
-    if (initialService) {
-      setCompanyOptions(initialService.items);
+    if (services.length) {
+      setSelectedService(selectedService);
+      setCompanyOptions(selectedService.companies);
+      setSelectedCompany(selectedService.companies[0]);
     }
-  }, [initialService]);
+  }, [selectedService, services.length]);
 
-  if (services.length === 0) {
+  if (!services.length) {
     return null;
   }
 
   return (
     <Formik
       initialValues={{
-        service: services[0],
-        company: services[0].items[0],
+        service: selectedService.value,
+        company: selectedCompany.value,
         clientID: '',
         nickname: '',
-        payDate: '',
+        payDate: payDates[0].value,
         automaticPayment: false,
       }}
       validationSchema={NewBillSchema}
@@ -66,10 +71,10 @@ export default function ModalNew() {
           paid: false,
           paidDate: '',
           id: randomId.toString(),
-          service: values.service.label,
-          company: values.company.label,
+          service: values.service,
+          company: values.company,
           nickname: values.nickname,
-          icon: values.service.value,
+          icon: values.service,
           clientID: values.clientID,
           payDate: values.payDate,
           automaticPayment: values.automaticPayment,
@@ -94,7 +99,7 @@ export default function ModalNew() {
             <h5>{t('features.newPayment')}</h5>
           </DModal.Header>
           <DModal.Body>
-            <form onSubmit={(event) => { event.preventDefault(); handleSubmit(); }}>
+            <form onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-6 mb-2">
                   <DInputSelect
@@ -102,8 +107,11 @@ export default function ModalNew() {
                     name="service"
                     label={t('bills.service')}
                     options={services}
-                    value={values.service.label}
-                    onChange={(value) => setFieldValue('service', value)}
+                    value={values.service}
+                    onChange={(newService) => {
+                      setSelectedService(newService);
+                      setFieldValue('service', newService.value);
+                    }}
                   />
                 </div>
                 <div className="col-6 mb-2">
@@ -112,8 +120,8 @@ export default function ModalNew() {
                     name="company"
                     label={t('bills.company')}
                     options={companyOptions}
-                    value={values.company.label}
-                    onChange={({ value }) => setFieldValue('company', value)}
+                    value={values.company}
+                    onChange={(newCompany) => setFieldValue('company', newCompany.value)}
                   />
                 </div>
                 <div className="col-6 mb-2">
@@ -170,9 +178,7 @@ export default function ModalNew() {
                           disabled={!values.automaticPayment}
                           label={t('bills.payday')}
                           options={payDates}
-                          value={values.company.label}
                           onChange={({ value }) => setFieldValue('payDate', value)}
-                          invalid={touched.payDate && !!errors.payDate}
                         />
                       </div>
                     </div>
