@@ -68,7 +68,7 @@ export type Company = {
 };
 
 export type AvailablePortal = {
-  modalDetail: { bill: Bill },
+  modalBillDetail: { bill: Bill },
   modalNew: undefined,
 };
 

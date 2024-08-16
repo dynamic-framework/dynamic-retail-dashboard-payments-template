@@ -8,7 +8,7 @@ import './config/liquidConfig';
 import './config/i18nConfig';
 
 import App from './App';
-import ModalDetail from './components/modals/modalDetail';
+import ModalBillDetail from './components/modals/ModalBillDetail';
 import ModalNewPayment from './components/modals/ModalNewPayment';
 import reportWebVitals from './reportWebVitals';
 import { AvailablePortal } from './services/interface';
@@ -22,7 +22,7 @@ root.render(
       <DContextProvider<AvailablePortal>
         portalName="portal"
         availablePortals={{
-          modalDetail: ModalDetail,
+          modalBillDetail: ModalBillDetail,
           modalNew: ModalNewPayment,
         }}
       >

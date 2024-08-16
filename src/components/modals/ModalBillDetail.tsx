@@ -11,21 +11,20 @@ import {
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import useOtherCategories from '../../services/hooks/useOtherCategories';
+import useLocalData from '../../services/hooks/useLocalData';
 import { AvailablePortal } from '../../services/interface';
-import { toastMessage } from '../toast/toastMessage';
+import { toastSaveBillMessage } from '../toast/toastSaveBillMessage';
 
-// Change name to something more descriptive and change file name to match convention
-export default function ModalDetail({
+export default function ModalBillDetail({
   payload: {
     bill,
   },
-}: PortalProps<AvailablePortal['modalDetail']>) {
+}: PortalProps<AvailablePortal['modalBillDetail']>) {
   const { closePortal } = useDPortalContext();
   const { t } = useTranslation();
   const { toast } = useDToast();
 
-  const { payDates } = useOtherCategories();
+  const { payDates } = useLocalData();
   const [automaticPayment, setAutomaticPayment] = useState<boolean>(bill.automaticPayment);
   const [nickname, setNickname] = useState<string>(bill.nickname);
 
@@ -39,7 +38,7 @@ export default function ModalDetail({
 
   const saveModal = () => {
     toast(
-      toastMessage,
+      toastSaveBillMessage,
       {
         duration: 3000,
       },
@@ -48,7 +47,7 @@ export default function ModalDetail({
 
   return (
     <DModal
-      name="modalDetail"
+      name="modalBillDetail"
       size="lg"
       centered
     >

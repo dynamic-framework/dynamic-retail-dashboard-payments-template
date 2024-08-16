@@ -63,7 +63,7 @@ export default function BillItem({ bill }: Props) {
           <div className="d-flex gap-3">
             <a
               className="link-secondary small"
-              onClick={() => openPortal('modalDetail', { bill })}
+              onClick={() => openPortal('modalBillDetail', { bill })}
               href="#!"
             >
               {t('bills.detail')}

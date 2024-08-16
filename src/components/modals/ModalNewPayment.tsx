@@ -15,8 +15,7 @@ import * as Yup from 'yup';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getPayDates, getServices } from '../../store/selectors';
 import { addBill } from '../../store/slice';
-import { toastMessage } from '../toast/toastMessage';
-// import { Company, ServiceItem } from '../../services/interface';
+import { toastSaveBillMessage } from '../toast/toastSaveBillMessage';
 
 const NewBillSchema = Yup.object().shape({
   service: Yup.string(),
@@ -83,7 +82,7 @@ export default function ModalNewPayment() {
 
         dispatch(addBill(newBill));
         closePortal();
-        toast(toastMessage, { duration: 3000 });
+        toast(toastSaveBillMessage, { duration: 3000 });
       }}
       enableReinitialize
     >
