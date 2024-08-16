@@ -39,7 +39,7 @@ const servicesES = [
   {
     label: 'Agua',
     value: 'water',
-    items: [
+    companies: [
       {
         label: 'Dynamic Water',
         value: 'Dynamic Water',
@@ -53,7 +53,7 @@ const servicesES = [
   {
     label: 'Luz',
     value: 'lightbulb',
-    items: [
+    companies: [
       {
         label: 'Dynamic Light',
         value: 'Dynamic Light',
@@ -67,7 +67,7 @@ const servicesES = [
   {
     label: 'Gas',
     value: 'fire',
-    items: [
+    companies: [
       {
         label: 'Dynamic Gas',
         value: 'Dynamic Gas',
@@ -81,7 +81,7 @@ const servicesES = [
   {
     label: 'Internet',
     value: 'wifi',
-    items: [
+    companies: [
       {
         label: 'Dynamic Internet',
         value: 'Dynamic Internet',
@@ -95,7 +95,7 @@ const servicesES = [
   {
     label: 'Telefono',
     value: 'telephone-fill',
-    items: [
+    companies: [
       {
         label: 'Dynamic Phone',
         value: 'Dynamic Phone',
@@ -112,7 +112,7 @@ const servicesEN = [
   {
     label: 'Water',
     value: 'water',
-    items: [
+    companies: [
       {
         label: 'Dynamic Water',
         value: 'Dynamic Water',
@@ -126,7 +126,7 @@ const servicesEN = [
   {
     label: 'Light',
     value: 'lightbulb',
-    items: [
+    companies: [
       {
         label: 'Dynamic Light',
         value: 'Dynamic Light',
@@ -140,7 +140,7 @@ const servicesEN = [
   {
     label: 'Gas',
     value: 'fire',
-    items: [
+    companies: [
       {
         label: 'Dynamic Gas',
         value: 'Dynamic Gas',
@@ -154,7 +154,7 @@ const servicesEN = [
   {
     label: 'Internet',
     value: 'wifi',
-    items: [
+    companies: [
       {
         label: 'Dynamic Internet',
         value: 'Dynamic Internet',
@@ -168,7 +168,7 @@ const servicesEN = [
   {
     label: 'Phone',
     value: 'telephone-fill',
-    items: [
+    companies: [
       {
         label: 'Dynamic Phone',
         value: 'Dynamic Phone',

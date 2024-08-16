@@ -9,7 +9,7 @@ import './config/i18nConfig';
 
 import App from './App';
 import ModalDetail from './components/modals/modalDetail';
-import ModalNew from './components/modals/modalNew';
+import ModalNewPayment from './components/modals/ModalNewPayment';
 import reportWebVitals from './reportWebVitals';
 import { AvailablePortal } from './services/interface';
 import store from './store/store';
@@ -23,7 +23,7 @@ root.render(
         portalName="portal"
         availablePortals={{
           modalDetail: ModalDetail,
-          modalNew: ModalNew,
+          modalNew: ModalNewPayment,
         }}
       >
         <DToastContainer position="top-right" />
