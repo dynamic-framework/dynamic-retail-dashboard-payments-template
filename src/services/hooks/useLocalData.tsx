@@ -181,7 +181,7 @@ const servicesEN = [
   },
 ];
 
-export default function useOtherCategories() {
+export default function useLocalData() {
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
   const payDates = useAppSelector(getPayDates);

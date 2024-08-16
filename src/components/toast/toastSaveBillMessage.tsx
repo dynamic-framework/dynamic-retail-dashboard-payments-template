@@ -2,8 +2,7 @@ import { DIcon, DButtonIcon } from '@dynamic-framework/ui-react';
 import { toast as reactToast, Toast } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
-// Change name to something more descriptive and change file name to match convention
-function ToastMessageContent({ id }: { id: string }) {
+function ToastSaveBillMessage({ id }: { id: string }) {
   const { t } = useTranslation();
 
   return (
@@ -28,9 +27,9 @@ function ToastMessageContent({ id }: { id: string }) {
   );
 }
 
-export function toastMessage({ id, visible }: Toast) {
+export function toastSaveBillMessage({ id, visible }: Toast) {
   if (!visible) {
     return null;
   }
-  return <ToastMessageContent id={id} />;
+  return <ToastSaveBillMessage id={id} />;
 }

@@ -32,7 +32,7 @@ export type PreviousPayment = {
 };
 
 export type AvailablePortal = {
-  modalDetail: {
+  modalBillDetail: {
     item: BillItem;
   };
   modalNew: {
