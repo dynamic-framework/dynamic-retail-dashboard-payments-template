@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { setOtherCategories } from '../../store/slice';
-import { getOtherCategories } from '../../store/selectors';
 import { SITE_LANG } from '../../config/widgetConfig';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { getOtherCategories } from '../../store/selectors';
+import { setOtherCategories } from '../../store/slice';
 
 const othersEN = {
   bills: {
