@@ -12,6 +12,7 @@ import reportWebVitals from './reportWebVitals';
 import store from './store/store';
 
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
+import './styles/base.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('dashboardPayments') as Element);
 root.render(
