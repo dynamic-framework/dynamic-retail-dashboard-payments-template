@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+import { DContextProvider } from '@dynamic-framework/ui-react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -6,14 +7,14 @@ import { Provider } from 'react-redux';
 import './config/liquidConfig';
 import './config/i18nConfig';
 
-import { DContextProvider } from '@dynamic-framework/ui-react';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store';
 
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
+import './styles/base.scss';
 
-const root = ReactDOM.createRoot(document.getElementById('dashboardPaymentsTemplate') as Element);
+const root = ReactDOM.createRoot(document.getElementById('dashboardPayments') as Element);
 root.render(
   <React.StrictMode>
     <Provider store={store}>

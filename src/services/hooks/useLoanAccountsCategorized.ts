@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { AccountRepository } from '../repositories';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getAccounts } from '../../store/selectors';
 import { setAccounts } from '../../store/slice';
 import errorHandler from '../../utils/errorHandler';
+import { AccountRepository } from '../repositories';
+import ApiError from '../utils/ApiError';
 
 export default function useLoanAccountsCategorized() {
   const [loading, setLoading] = useState(false);
@@ -20,6 +21,8 @@ export default function useLoanAccountsCategorized() {
         dispatch(setAccounts(data));
         setLoading(false);
       } catch (error) {
+        if ((error as ApiError).name === 'CanceledError') return;
+
         errorHandler(error);
       }
     })();

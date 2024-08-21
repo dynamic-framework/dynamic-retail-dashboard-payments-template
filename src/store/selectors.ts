@@ -1,8 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { RootState } from './store';
-import { Account } from '../services/interface';
 import { AccountTypeConfig } from '../services/config';
+import { Account } from '../services/interface';
+
+import { RootState } from './store';
 
 const getState = (state: RootState) => state.widget;
 

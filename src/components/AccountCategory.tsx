@@ -1,8 +1,9 @@
 import { DCollapse } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
-import AccountItem from './AccountItem';
 import { Account } from '../services/interface';
+
+import AccountItem from './AccountItem';
 
 interface Props {
   type: string;
