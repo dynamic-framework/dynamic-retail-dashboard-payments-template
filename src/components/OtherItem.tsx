@@ -1,11 +1,10 @@
-import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { DButton, DIcon } from '@dynamic-framework/ui-react';
 import classnames from 'classnames';
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { OTHER_CONFIG } from '../store/slice';
 import { SITE_URL } from '../config/widgetConfig';
-
+import { OTHER_CONFIG } from '../store/slice';
 import type { OtherConfigType } from '../store/slice';
 
 export type OtherItemType = {
@@ -51,7 +50,7 @@ export default function OtherItem({
           text={t('button.pay')}
           theme="secondary"
           variant="link"
-          className="text-decoration-underline"
+          disabled
         />
       </div>
     </a>

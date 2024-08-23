@@ -1,11 +1,11 @@
 import useOtherCategories from '../services/hooks/useOtherCategories';
 import { useAppSelector } from '../store/hooks';
 import { getAccountsByCategory } from '../store/selectors';
-import OtherCategory from './OtherCategory';
-import AccountCategory from './AccountCategory';
-
-import type { OtherItemType } from './OtherItem';
 import type { OtherConfigType } from '../store/slice';
+
+import AccountCategory from './AccountCategory';
+import OtherCategory from './OtherCategory';
+import type { OtherItemType } from './OtherItem';
 
 export default function CategoryList() {
   const categories = useAppSelector(getAccountsByCategory);
