@@ -41,10 +41,14 @@ const servicesES = [
     value: 'water',
     companies: [
       {
+        service: 'Agua',
+        icon: 'water',
         label: 'Dynamic Water',
         value: 'Dynamic Water',
       },
       {
+        service: 'Agua',
+        icon: 'water',
         label: 'Water Company',
         value: 'Water Company',
       },
@@ -55,10 +59,14 @@ const servicesES = [
     value: 'lightbulb',
     companies: [
       {
+        service: 'Luz',
+        icon: 'lightbulb',
         label: 'Dynamic Light',
         value: 'Dynamic Light',
       },
       {
+        service: 'Luz',
+        icon: 'lightbulb',
         label: 'Light Company',
         value: 'Light Company',
       },
@@ -69,10 +77,14 @@ const servicesES = [
     value: 'fire',
     companies: [
       {
+        service: 'Gas',
+        icon: 'fire',
         label: 'Dynamic Gas',
         value: 'Dynamic Gas',
       },
       {
+        service: 'Gas',
+        icon: 'fire',
         label: 'Gas Company',
         value: 'Gas Company',
       },
@@ -83,10 +95,14 @@ const servicesES = [
     value: 'wifi',
     companies: [
       {
+        service: 'Internet',
+        icon: 'wifi',
         label: 'Dynamic Internet',
         value: 'Dynamic Internet',
       },
       {
+        service: 'Internet',
+        icon: 'wifi',
         label: 'Internet Company',
         value: 'Internet Company',
       },
@@ -97,10 +113,14 @@ const servicesES = [
     value: 'telephone-fill',
     companies: [
       {
+        service: 'Telefono',
+        icon: 'telephone-fill',
         label: 'Dynamic Phone',
         value: 'Dynamic Phone',
       },
       {
+        service: 'Telefono',
+        icon: 'telephone-fill',
         label: 'Phone Company',
         value: 'Phone Company',
       },
@@ -114,10 +134,14 @@ const servicesEN = [
     value: 'water',
     companies: [
       {
+        service: 'Water',
+        icon: 'water',
         label: 'Dynamic Water',
         value: 'Dynamic Water',
       },
       {
+        service: 'Water',
+        icon: 'water',
         label: 'Water Company',
         value: 'Water Company',
       },
@@ -128,10 +152,14 @@ const servicesEN = [
     value: 'lightbulb',
     companies: [
       {
+        service: 'Light',
+        icon: 'lightbulb',
         label: 'Dynamic Light',
         value: 'Dynamic Light',
       },
       {
+        service: 'Light',
+        icon: 'lightbulb',
         label: 'Light Company',
         value: 'Light Company',
       },
@@ -142,10 +170,14 @@ const servicesEN = [
     value: 'fire',
     companies: [
       {
+        service: 'Gas',
+        icon: 'fire',
         label: 'Dynamic Gas',
         value: 'Dynamic Gas',
       },
       {
+        service: 'Gas',
+        icon: 'fire',
         label: 'Gas Company',
         value: 'Gas Company',
       },
@@ -156,10 +188,14 @@ const servicesEN = [
     value: 'wifi',
     companies: [
       {
+        service: 'Internet',
+        icon: 'wifi',
         label: 'Dynamic Internet',
         value: 'Dynamic Internet',
       },
       {
+        service: 'Internet',
+        icon: 'wifi',
         label: 'Internet Company',
         value: 'Internet Company',
       },
@@ -170,10 +206,14 @@ const servicesEN = [
     value: 'telephone-fill',
     companies: [
       {
+        service: 'Phone',
+        icon: 'telephone-fill',
         label: 'Dynamic Phone',
         value: 'Dynamic Phone',
       },
       {
+        service: 'Phone',
+        icon: 'telephone-fill',
         label: 'Phone Company',
         value: 'Phone Company',
       },

@@ -63,6 +63,8 @@ export type ServiceItem = {
 };
 
 export type Company = {
+  service: string;
+  icon: string;
   value: string;
   label: string;
 };
