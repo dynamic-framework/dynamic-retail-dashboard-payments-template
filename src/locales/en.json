@@ -13,7 +13,12 @@
   },
   "button": {
     "pay": "Pay",
-    "addPayment": "Add payment"
+    "addPayment": "Add payment",
+    "back": "Back",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save"
   },
   "features": {
     "title": "Other payment features",
@@ -42,13 +47,17 @@
     "id": "Identifier",
     "date": "Date",
     "amount": "Amount",
+    "paymentType": "Tipo de pago",
     "manualPayment": "Manual bill payment",
     "automaticPayment": "Automatic bill payment",
     "payday": "Pay day",
-    "endMandate": "End of mandate"
+    "endMandate": "End of mandate",
+    "selectCompany": "Select a company",
+    "serviceList": "Services list"
   },
   "utilities": {
-    "save": "Save",
-    "successSave":"The account data has been saved successfully"
+    "successSave":"The account data has been saved successfully",
+    "successDelete":"The bill has been removed from your payments",
+    "deleteConfirmation":"Are you sure you want to remove the bill from your payments?"
   }
 }

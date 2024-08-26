@@ -13,7 +13,12 @@
   },
   "button": {
     "pay": "Pagar",
-    "addPayment": "Inscribir pagos"
+    "addPayment": "Inscribir pagos",
+    "back": "Volver",
+    "edit": "Editar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "save": "Guardar"
   },
   "features": {
     "title": "Otras funciones de pago",
@@ -42,13 +47,17 @@
     "id": "Identificador",
     "date": "Fecha",
     "amount": "Monto",
+    "paymentType": "Tipo de pago",
     "manualPayment": "Pago manual",
     "automaticPayment": "Pago automatico",
     "payday": "Día de pago",
-    "endMandate": "Fin del mandato"
+    "endMandate": "Fin del mandato",
+    "selectCompany": "Selecciona un serivicio",
+    "serviceList": "Listado de servicios"
   },
   "utilities": {
-    "save": "Guardar",
-    "successSave":"Los datos de la cuenta se han guardado correctamente"
+    "successSave":"Los datos de la cuenta se han guardado correctamente",
+    "successDelete":"La factura se ha eliminado de sus pagos",
+    "deleteConfirmation":"Esta seguro que desea eliminar la factura de sus pagos?"
   }
 }
