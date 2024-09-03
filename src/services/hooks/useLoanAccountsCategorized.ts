@@ -5,6 +5,7 @@ import { getAccounts, getBills } from '../../store/selectors';
 import { setAccounts, setBills } from '../../store/slice';
 import errorHandler from '../../utils/errorHandler';
 import { AccountRepository, BillRepository } from '../repositories';
+import ApiError from '../utils/ApiError';
 
 export default function useLoanAccountsCategorized() {
   const [loading, setLoading] = useState(false);
@@ -23,6 +24,8 @@ export default function useLoanAccountsCategorized() {
         dispatch(setBills(billsList));
         setLoading(false);
       } catch (error) {
+        if ((error as ApiError).name === 'CanceledError') return;
+
         errorHandler(error);
       }
     })();
