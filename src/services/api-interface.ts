@@ -65,6 +65,7 @@ export type PaymentDates = {
 };
 
 export type ApiBill = {
+  amount: number;
   id: number,
   service: string,
   company: string,
@@ -73,7 +74,7 @@ export type ApiBill = {
   clientID: string,
   text: string,
   payDate: string,
-  automaticPaymenint: boolean,
+  automaticPayment: boolean,
   paid: boolean,
   paidDate: string,
   previousPayments?: PreviousPayment[];
