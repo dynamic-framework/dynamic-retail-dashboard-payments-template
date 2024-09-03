@@ -14,8 +14,9 @@ import reportWebVitals from './reportWebVitals';
 import { AvailablePortal } from './services/interface';
 import store from './store/store';
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
+import './styles/base.scss';
 
-const root = ReactDOM.createRoot(document.getElementById('dashboardPaymentsTemplate') as Element);
+const root = ReactDOM.createRoot(document.getElementById('dashboardPayments') as Element);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
