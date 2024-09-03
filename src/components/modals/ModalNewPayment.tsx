@@ -16,7 +16,6 @@ import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 
 import { ServiceItem, Company } from '../../services/interface';
-
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getPayDates, getServices } from '../../store/selectors';
 import { addBill } from '../../store/slice';
