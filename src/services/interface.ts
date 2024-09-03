@@ -22,7 +22,7 @@ export type BaseAccount<T extends AccountBaseType> = {
 };
 
 export type Bill = {
-  id: string,
+  id: number,
   service: string,
   company: string,
   nickname: string,
