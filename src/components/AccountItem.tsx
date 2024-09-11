@@ -42,7 +42,7 @@ export default function AccountItem({ account }: Props) {
         </div>
         <DButton
           text={t('button.pay')}
-          theme="secondary"
+          theme="primary"
           size="sm"
         />
       </div>

@@ -37,7 +37,6 @@ export default function ModalNewPayment() {
   const { toast } = useDToast();
   const dispatch = useAppDispatch();
   const [allCompanies, setAllCompanies] = useState<Company[]>([]);
-
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [companyOptions, setCompanyOptions] = useState<Company[]>([]);
 
@@ -85,7 +84,7 @@ export default function ModalNewPayment() {
           amount: 0,
           paid: false,
           paidDate: '',
-          id: randomId.toString(),
+          id: randomId,
           service: values.service,
           company: values.company,
           nickname: values.nickname,
@@ -159,18 +158,17 @@ export default function ModalNewPayment() {
               {values.service && !values.company
                 && (
                   <div className="col-12">
-                    <div className="d-flex align-items-end justify-content-end mb-4">
+                    <div className="d-flex align-items-start justify-content-start mb-2 flex-column gap-4">
                       <DButton
                         iconStart="arrow-left"
                         onClick={() => {
                           setSelectedService(null);
                           setFieldValue('service', '');
                         }}
-                        size="sm"
                         text={t('button.back')}
                         theme="secondary"
+                        className="p-2 text-secondary d-flex gap-2 bg-transparent border-0 align-items-center"
                         type="button"
-                        variant="link"
                       />
                     </div>
                     <div className="row">
@@ -197,7 +195,22 @@ export default function ModalNewPayment() {
             {values.service && values.company
               && (
                 <form onSubmit={handleSubmit}>
-                  <div className="d-flex align-items-start justify-content-between mb-4">
+                  <div className="d-flex align-items-start justify-content-start mb-2 flex-column gap-4">
+                    <DButton
+                      iconStart="arrow-left"
+                      onClick={() => {
+                        if (selectedService === null) {
+                          setFieldValue('company', '');
+                          setFieldValue('service', '');
+                        } else {
+                          setFieldValue('company', '');
+                        }
+                      }}
+                      text={t('button.back')}
+                      theme="secondary"
+                      className="p-2 text-secondary d-flex gap-2 bg-transparent border-0 align-items-center"
+                      type="button"
+                    />
                     <div className="d-flex align-items-center gap-3 border border-light p-4 rounded">
                       <DIcon
                         hasCircle
@@ -210,22 +223,6 @@ export default function ModalNewPayment() {
                         <h5 className="text-gray-800">{values.company}</h5>
                       </div>
                     </div>
-                    <DButton
-                      iconStart="arrow-left"
-                      onClick={() => {
-                        if (selectedService === null) {
-                          setFieldValue('company', '');
-                          setFieldValue('service', '');
-                        } else {
-                          setFieldValue('company', '');
-                        }
-                      }}
-                      size="sm"
-                      text={t('button.back')}
-                      theme="secondary"
-                      type="button"
-                      variant="link"
-                    />
                   </div>
                   <div className="row">
                     <div className="col-12 mb-2">
@@ -238,7 +235,12 @@ export default function ModalNewPayment() {
                         maxLength={20}
                         value={values.clientID}
                         invalid={touched.clientID && !!errors.clientID}
-                        onChange={(e) => setFieldValue('clientID', e)}
+                        onChange={(e) => {
+                          const value = e;
+                          if (/^\d*$/.test(value) && value.length <= 20) {
+                            setFieldValue('clientID', value);
+                          }
+                        }}
                       />
                     </div>
                     <div className="col-12 mb-2">

@@ -71,7 +71,7 @@ export default function BillItem({ bill }: Props) {
           </div>
         </div>
         {bill.paid ? (
-          <a className="btn btn-secondary btn-sm" href={billPath}>{t('button.pay')}</a>
+          <a className="btn btn-primary btn-sm" href={billPath}>{t('button.pay')}</a>
         ) : (
           <p className="m-0">
             {paymentInfo}
