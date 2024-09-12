@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import { DContextProvider } from '@dynamic-framework/ui-react';
+import { DContextProvider, DToastContainer } from '@dynamic-framework/ui-react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -8,9 +8,11 @@ import './config/liquidConfig';
 import './config/i18nConfig';
 
 import App from './App';
+import ModalBillDetail from './components/modals/ModalBillDetail';
+import ModalNewPayment from './components/modals/ModalNewPayment';
 import reportWebVitals from './reportWebVitals';
+import { AvailablePortal } from './services/interface';
 import store from './store/store';
-
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
 import './styles/base.scss';
 
@@ -18,7 +20,14 @@ const root = ReactDOM.createRoot(document.getElementById('dashboardPayments') as
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <DContextProvider>
+      <DContextProvider<AvailablePortal>
+        portalName="portal"
+        availablePortals={{
+          modalBillDetail: ModalBillDetail,
+          modalNew: ModalNewPayment,
+        }}
+      >
+        <DToastContainer position="top-right" />
         <App />
       </DContextProvider>
     </Provider>

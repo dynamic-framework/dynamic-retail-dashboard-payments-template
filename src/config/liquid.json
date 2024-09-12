@@ -11,6 +11,7 @@
     "currency-decimal": ",",
     "accounts-path": "accounts",
     "pay-debt-path": "#",
+    "pay-bill-path": "#",
     "api-path": "https://stoplight.io/mocks/modyo/dynamic/204091081"
   }
 }
