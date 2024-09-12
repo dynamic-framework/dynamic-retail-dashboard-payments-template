@@ -15,7 +15,7 @@ export default function BillItem({ bill }: Props) {
   const { openPortal } = useDPortalContext();
 
   const billPath = useMemo(
-    () => `${SITE_URL}/${SITE_PATH.PAY_DEBT}?bill_id=${bill.id}`,
+    () => `${SITE_URL}/${SITE_PATH.PAY_BILL}?bill_id=${bill.id}`,
     [bill.id],
   );
 
