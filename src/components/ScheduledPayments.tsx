@@ -3,9 +3,15 @@ import { useTranslation } from 'react-i18next';
 
 import useScheduledPayments from '../services/hooks/useScheduledPayments';
 
+import ScheduledLoader from './loaders/ScheduledLoader';
+
 export default function ScheduledPayments() {
   const { t } = useTranslation();
-  const { scheduledPayments } = useScheduledPayments();
+  const { loading, scheduledPayments } = useScheduledPayments();
+
+  if (loading) {
+    return <ScheduledLoader />;
+  }
 
   return (
     <div className="d-block bg-surface-gray rounded p-4">
