@@ -55,6 +55,10 @@
     "selectCompany": "Selecciona un serivicio",
     "serviceList": "Listado de servicios"
   },
+  "formError": {
+    "onlyDigits": "Deben ser solo 20 caracteres",
+    "maxDigits": "Máximo 20 caracteres"
+  },
   "utilities": {
     "successSave":"Los datos de la cuenta se han guardado correctamente",
     "successDelete":"La factura se ha eliminado de sus pagos",

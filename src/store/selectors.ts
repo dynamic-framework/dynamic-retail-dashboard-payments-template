@@ -58,3 +58,13 @@ export const getScheduledPayments = createSelector(
   getState,
   (widget) => widget.scheduledPayments,
 );
+
+export const getSelectedService = createSelector(
+  getState,
+  (widget) => widget.selectedService,
+);
+
+export const getSelectedCompany = createSelector(
+  getState,
+  (widget) => widget.selectedCompany,
+);

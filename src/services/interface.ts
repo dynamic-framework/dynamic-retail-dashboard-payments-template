@@ -22,6 +22,7 @@ export type BaseAccount<T extends AccountBaseType> = {
 };
 
 export type Bill = {
+  type: string,
   id: number,
   service: string,
   company: string,
@@ -56,7 +57,7 @@ export type Transaction = {
   status: string;
 };
 
-export type ServiceItem = {
+export type Service = {
   label: string;
   value: string;
   companies: Company[];
@@ -67,6 +68,11 @@ export type Company = {
   icon: string;
   value: string;
   label: string;
+};
+
+export type SelectedItem = {
+  label: string;
+  value: string;
 };
 
 export type AvailablePortal = {

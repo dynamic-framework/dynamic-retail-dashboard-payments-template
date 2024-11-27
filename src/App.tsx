@@ -1,6 +1,6 @@
 import CategoryList from './components/CategoryList';
 import DashboardFeatures from './components/DashboardFeatures';
-import SkeletonLoader from './components/SkeletonLoader';
+import Loading from './components/Loading';
 import useLoanAccountsCategorized from './services/hooks/useLoanAccountsCategorized';
 import useLocalData from './services/hooks/useLocalData';
 
@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div className="py-4">
       {loading
-        ? <SkeletonLoader />
+        ? <Loading />
         : (
           <div className="row position-relative align-items-start">
             <div className="col-12 col-lg-7 col-xl-8 pb-6 order-2">

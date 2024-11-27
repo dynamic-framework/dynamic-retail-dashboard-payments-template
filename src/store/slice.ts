@@ -4,7 +4,8 @@ import {
   Account,
   Bill,
   PayDateOption,
-  ServiceItem,
+  Service,
+  Company,
 } from '../services/interface';
 
 export type WidgetState = {
@@ -12,8 +13,10 @@ export type WidgetState = {
   bills: Bill[];
   otherCategories: Record<string, unknown>;
   payDates: PayDateOption[];
-  services: ServiceItem[];
+  services: Service[];
   scheduledPayments?: Array<Record<string, unknown>>;
+  selectedService: Service;
+  selectedCompany: Company;
 };
 
 export const OTHER_CONFIG = {
@@ -35,6 +38,17 @@ const initialState: WidgetState = {
   payDates: [],
   services: [],
   scheduledPayments: [],
+  selectedService: {
+    label: '',
+    value: '',
+    companies: [],
+  },
+  selectedCompany: {
+    service: '',
+    icon: '',
+    value: '',
+    label: '',
+  },
 };
 
 const slice = createSlice({
@@ -50,21 +64,27 @@ const slice = createSlice({
     setOtherCategories(state, action: PayloadAction<Record<string, unknown>>) {
       state.otherCategories = action.payload;
     },
+    setSelectedService(state, action: PayloadAction<Service>) {
+      state.selectedService = action.payload;
+    },
+    setSelectedCompany(state, action: PayloadAction<Company>) {
+      state.selectedCompany = action.payload;
+    },
     setPayDates(state, action: PayloadAction<PayDateOption[]>) {
       state.payDates = action.payload;
     },
-    setServices(state, action: PayloadAction<ServiceItem[]>) {
+    setServices(state, action: PayloadAction<Service[]>) {
       state.services = action.payload;
     },
     setScheduledPayments(state, action: PayloadAction<Array<Record<string, unknown>>>) {
       state.scheduledPayments = action.payload;
     },
     addAccount(state, action: PayloadAction<Account>) {
-      state.accounts.push(action.payload);
+      state.accounts = [...state.accounts, action.payload];
     },
     addBill(state, action: PayloadAction<Bill>) {
       if (state.bills) {
-        state.bills.push(action.payload);
+        state.bills = [...state.bills, action.payload];
       }
     },
   },
@@ -77,6 +97,8 @@ export const {
   setPayDates,
   setServices,
   setScheduledPayments,
+  setSelectedService,
+  setSelectedCompany,
   addAccount,
   addBill,
 } = slice.actions;

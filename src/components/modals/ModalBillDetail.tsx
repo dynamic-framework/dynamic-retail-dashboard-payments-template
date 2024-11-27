@@ -8,7 +8,7 @@ import {
   PortalProps,
   useDToast,
 } from '@dynamic-framework/ui-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useLocalData from '../../services/hooks/useLocalData';
@@ -40,25 +40,20 @@ export default function ModalBillDetail({
     setAutomaticPayment(bill.automaticPayment);
   }, [bill.automaticPayment]);
 
-  const saveModal = () => {
+  const saveModal = useCallback(() => {
     setEdit((prevEdit) => !prevEdit);
-    toast(
-      toastSaveBillMessage,
-      {
-        duration: 3000,
-      },
-    );
-  };
-  const deleteModal = () => {
+    toast(toastSaveBillMessage, {
+      duration: 3000,
+    });
+  }, [setEdit, toast]);
+
+  const deleteModal = useCallback(() => {
     closePortal();
     setDelete((prevEdit) => !prevEdit);
-    toast(
-      toastDeleteBillMessage,
-      {
-        duration: 3000,
-      },
-    );
-  };
+    toast(toastDeleteBillMessage, {
+      duration: 3000,
+    });
+  }, [closePortal, setDelete, toast]);
 
   return (
     <DModal name="modalBillDetail" size="lg">
@@ -72,26 +67,24 @@ export default function ModalBillDetail({
           </h4>
           {!edit ? (
             <DButton
-              iconStart=""
               onClick={() => {
                 setEdit((prevEdit) => !prevEdit);
               }}
               size="sm"
               text={t('button.edit')}
-              theme="secondary"
+              theme="primary"
               type="button"
               variant="link"
             />
           ) : (
             <DButton
-              iconStart=""
               onClick={() => {
                 setEdit((prevEdit) => !prevEdit);
                 setDelete((prevEdit) => !prevEdit);
               }}
               size="sm"
               text={t('button.cancel')}
-              theme="secondary"
+              theme="primary"
               type="button"
               variant="link"
             />
@@ -185,7 +178,6 @@ export default function ModalBillDetail({
                   <DButton
                     onClick={() => saveModal()}
                     text={t('button.save')}
-                    theme="success"
                     type="button"
                   />
                 </div>

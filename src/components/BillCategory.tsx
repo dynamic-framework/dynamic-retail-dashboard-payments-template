@@ -5,9 +5,10 @@ import { Bill } from '../services/interface';
 
 import BillItem from './BillItem';
 
-interface Props {
+type Props = {
+
   bills: Array<Bill>;
-}
+};
 
 export default function BillCategory({ bills }: Props) {
   const { t } = useTranslation();

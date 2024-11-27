@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { SITE_PATH, SITE_URL } from '../config/widgetConfig';
 import type { Bill } from '../services/interface';
 
-interface Props {
+type Props = {
   bill: Bill;
-}
+};
 
 export default function BillItem({ bill }: Props) {
   const { t } = useTranslation();
@@ -19,13 +19,19 @@ export default function BillItem({ bill }: Props) {
     [bill.id],
   );
 
-  const billStatus = bill.paid
-    ? `${t('bills.total')} $${bill.amount}, ${t('bills.expiration')} ${bill.payDate}`
-    : `${t('bills.paid')} $${bill.amount} ${t('bills.on')} ${bill.payDate}`;
+  const billStatus = useMemo(
+    () => (bill.paid
+      ? `${t('bills.total')} $${bill.amount}, ${t('bills.expiration')} ${bill.payDate}`
+      : `${t('bills.paid')} $${bill.amount} ${t('bills.on')} ${bill.payDate}`),
+    [bill.paid, bill.amount, bill.payDate, t],
+  );
 
-  const paymentInfo = bill.automaticPayment
-    ? `${t('bills.next')} ${bill.payDate}`
-    : t('bills.noDebt');
+  const paymentInfo = useMemo(
+    () => (bill.automaticPayment
+      ? `${t('bills.next')} ${bill.payDate}`
+      : t('bills.noDebt')),
+    [bill.automaticPayment, bill.payDate, t],
+  );
 
   return (
     <div
@@ -61,13 +67,13 @@ export default function BillItem({ bill }: Props) {
             {billStatus}
           </small>
           <div className="d-flex gap-3">
-            <a
-              className="link-secondary small"
+            <button
+              type="button"
+              className="px-0 small link-primary bg-transparent d-flex align-items-center gap-2 border-0"
               onClick={() => openPortal('modalBillDetail', { bill })}
-              href="#!"
             >
               {t('bills.detail')}
-            </a>
+            </button>
           </div>
         </div>
         {bill.paid ? (

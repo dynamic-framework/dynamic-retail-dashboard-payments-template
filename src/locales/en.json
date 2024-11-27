@@ -55,6 +55,10 @@
     "selectCompany": "Select a company",
     "serviceList": "Services list"
   },
+  "formError": {
+    "onlyDigits": "Must be only digits",
+    "maxDigits": "Must be max 20 digits"
+  },
   "utilities": {
     "successSave":"The account data has been saved successfully",
     "successDelete":"The bill has been removed from your payments",
