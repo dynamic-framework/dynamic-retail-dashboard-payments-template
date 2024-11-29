@@ -2,7 +2,10 @@ import { DCard } from '@dynamic-framework/ui-react';
 
 export default function Loading() {
   return (
-    <div className="row align-items-start" aria-hidden="true">
+    <div
+      className="row align-items-start"
+      aria-hidden="true"
+    >
       <div className="col-12 col-lg-7 col-xl-8 pb-6 order-2">
         <DCard className="mb-6">
           <DCard.Body>
@@ -13,7 +16,10 @@ export default function Loading() {
               <hr />
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 48, height: 48 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 48, height: 48 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -23,7 +29,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 48, height: 48 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 48, height: 48 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -43,7 +52,10 @@ export default function Loading() {
               <hr />
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 48, height: 48 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 48, height: 48 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -53,7 +65,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 48, height: 48 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 48, height: 48 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -63,7 +78,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 48, height: 48 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 48, height: 48 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -83,7 +101,10 @@ export default function Loading() {
               <hr />
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 48, height: 48 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 48, height: 48 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -93,7 +114,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 48, height: 48 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 48, height: 48 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -103,7 +127,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 48, height: 48 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 48, height: 48 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -124,7 +151,10 @@ export default function Loading() {
               </h5>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 32, height: 32 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 32, height: 32 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -134,7 +164,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 32, height: 32 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 32, height: 32 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -144,7 +177,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 32, height: 32 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 32, height: 32 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -154,7 +190,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 32, height: 32 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 32, height: 32 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">
@@ -164,7 +203,10 @@ export default function Loading() {
               </div>
               <div className="col-12 d-flex align-items-center mb-4">
                 <div className="placeholder-glow me-4">
-                  <span className="placeholder col-12 rounded-circle" style={{ width: 32, height: 32 }} />
+                  <span
+                    className="placeholder col-12 rounded-circle"
+                    style={{ width: 32, height: 32 }}
+                  />
                 </div>
                 <div className="w-100">
                   <h4 className="fs-5 placeholder-glow">

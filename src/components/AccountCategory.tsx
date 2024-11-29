@@ -25,7 +25,10 @@ export default function AccountCategory({ type, accounts }: Props) {
     >
       <div className="d-flex gap-4 flex-column">
         {accounts.map((account) => (
-          <AccountItem key={account.id} account={account} />
+          <AccountItem
+            key={account.id}
+            account={account}
+          />
         ))}
       </div>
     </DCollapse>

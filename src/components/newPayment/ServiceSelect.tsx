@@ -1,5 +1,7 @@
 import { DQuickActionButton, DSelect } from '@dynamic-framework/ui-react';
-import { useCallback, useEffect, useState } from 'react';
+import {
+  useCallback, useEffect, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Company, Service } from '../../services/interface';
@@ -45,7 +47,10 @@ export function ServiceSelect() {
       <h6 className="mb-4">{t('bills.serviceList')}</h6>
       <div className="row">
         {services?.map((service) => (
-          <div className="col-6" key={service.value}>
+          <div
+            className="col-6"
+            key={service.value}
+          >
             <div className="mb-3">
               <DQuickActionButton
                 actionIcon="chevron-right"
