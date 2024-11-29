@@ -25,56 +25,53 @@ export default function DashboardFeatures() {
               <DIcon
                 hasCircle
                 icon="plus"
-                size="1rem"
+                size="var(--bs-ref-spacer-4)"
                 theme="primary"
               />
               {t('features.newPayment')}
             </button>
           </li>
           <li className="mb-4">
-            <button
+            <a
+              href={`${SITE_URL}/${SITE_PATH.RECHARGES}`}
               className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
-              type="button"
-              onClick={() => { }}
             >
               <DIcon
                 hasCircle
                 icon="phone"
-                size="1rem"
+                size="var(--bs-ref-spacer-4)"
                 theme="primary"
               />
               {t('features.recharges')}
-            </button>
+            </a>
           </li>
           <li className="mb-4">
-            <button
+            <a
+              href={`${SITE_URL}/${SITE_PATH.PREAUTORIZED}`}
               className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
-              type="button"
-              onClick={() => { }}
             >
               <DIcon
                 hasCircle
                 icon="hand-thumbs-up"
-                size="1rem"
+                size="var(--bs-ref-spacer-4)"
                 theme="primary"
               />
               {t('features.preauthorized')}
-            </button>
+            </a>
           </li>
           <li className="mb-4">
-            <button
+            <a
+              href={`${SITE_URL}/${SITE_PATH.PAYMENTS_HISTORY}`}
               className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
-              type="button"
-              onClick={() => { }}
             >
               <DIcon
                 hasCircle
                 icon="clock"
-                size="1rem"
+                size="var(--bs-ref-spacer-4)"
                 theme="primary"
               />
               {t('features.history')}
-            </button>
+            </a>
           </li>
           <li className="mb-4">
             <a
@@ -84,7 +81,7 @@ export default function DashboardFeatures() {
               <DIcon
                 hasCircle
                 icon="receipt"
-                size="1rem"
+                size="var(--bs-ref-spacer-4)"
                 theme="primary"
               />
               {t('features.onetime')}

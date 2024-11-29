@@ -29,8 +29,14 @@ export default function ModalNewPayment() {
   };
 
   return (
-    <DModal name="modalNew" size="lg">
-      <DModal.Header onClose={closePortal} showCloseButton>
+    <DModal
+      name="modalNew"
+      size="lg"
+    >
+      <DModal.Header
+        onClose={closePortal}
+        showCloseButton
+      >
         <h5>{t('features.newPayment')}</h5>
       </DModal.Header>
       <DModal.Body>

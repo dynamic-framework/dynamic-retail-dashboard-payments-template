@@ -18,14 +18,17 @@ export default function useLoanAccountsCategorized() {
     (async () => {
       try {
         setLoading(true);
-        const accountsList = await AccountRepository.list({ abortSignal: abortController.signal });
+        const accountsList = await AccountRepository.list(
+          { config: { abortSignal: abortController.signal } },
+        );
         dispatch(setAccounts(accountsList));
-        const billsList = await BillRepository.list({ abortSignal: abortController.signal });
+        const billsList = await BillRepository.list(
+          { config: { abortSignal: abortController.signal } },
+        );
         dispatch(setBills(billsList));
         setLoading(false);
       } catch (error) {
         if ((error as ApiError).name === 'CanceledError') return;
-
         errorHandler(error);
       }
     })();

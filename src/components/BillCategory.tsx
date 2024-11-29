@@ -1,17 +1,14 @@
 import { DCollapse } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
-import { Bill } from '../services/interface';
+import { useAppSelector } from '../store/hooks';
+import { getBills } from '../store/selectors';
 
 import BillItem from './BillItem';
 
-type Props = {
-
-  bills: Array<Bill>;
-};
-
-export default function BillCategory({ bills }: Props) {
+export default function BillCategory() {
   const { t } = useTranslation();
+  const bills = useAppSelector(getBills);
 
   return (
     <DCollapse
@@ -24,8 +21,11 @@ export default function BillCategory({ bills }: Props) {
       )}
     >
       <div className="d-flex flex-column gap-4">
-        {bills.map((item) => (
-          <BillItem key={item.id} bill={item} />
+        {bills.map((bill) => (
+          <BillItem
+            key={bill.id}
+            bill={bill}
+          />
         ))}
       </div>
     </DCollapse>

@@ -2,7 +2,7 @@ import {
   DIcon,
   DButton,
   DInputCheck,
-  DInputSelect,
+  DSelect,
   DInput,
   useDToast,
   useDPortalContext,
@@ -14,11 +14,18 @@ import * as Yup from 'yup';
 
 import { Bill } from '../../services/interface';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { getPayDates, getSelectedCompany, getSelectedService } from '../../store/selectors';
-import { addBill, setSelectedCompany, setSelectedService } from '../../store/slice';
-import { toastSaveBillMessage } from '../toast/toastSaveBillMessage';
+import {
+  getPayDates,
+  getSelectedCompany,
+  getSelectedService,
+} from '../../store/selectors';
+import {
+  addBill,
+  setSelectedCompany,
+  setSelectedService,
+} from '../../store/slice';
 
-import { EMPTY_SERVICE, EMPTY_COMPANY } from './EmprtyStates';
+import { EMPTY_SERVICE, EMPTY_COMPANY } from './EmptyStates';
 
 export function PaymentDetailsForm() {
   const { t } = useTranslation();
@@ -48,6 +55,7 @@ export function PaymentDetailsForm() {
       nickname: '',
       clientID: '',
       payDate: '',
+      date: '',
       automaticPayment: false,
       previousPayments: [],
     }),
@@ -57,6 +65,7 @@ export function PaymentDetailsForm() {
     const randomId = Math.floor(Math.random() * 1000000) + Date.now();
     return {
       type: 'Bill',
+      date: '',
       text: '',
       amount: 0,
       paid: false,
@@ -83,7 +92,13 @@ export function PaymentDetailsForm() {
       dispatch(setSelectedService(EMPTY_SERVICE));
       dispatch(setSelectedCompany(EMPTY_COMPANY));
       closePortal();
-      toast(toastSaveBillMessage, { duration: 3000 });
+      toast({
+        title: t('utilities.successCreated'),
+        theme: 'success',
+        soft: true,
+      }, {
+        duration: 3000,
+      });
     },
   });
 
@@ -94,17 +109,15 @@ export function PaymentDetailsForm() {
           type="button"
           className="px-0 link-primary bg-transparent d-flex align-items-center gap-2 border-0"
           onClick={() => {
-            if (selectedService.label) {
-              dispatch(setSelectedCompany(EMPTY_COMPANY));
-            } else {
+            if (!selectedService.label) {
               dispatch(setSelectedService(EMPTY_SERVICE));
-              dispatch(setSelectedCompany(EMPTY_COMPANY));
             }
+            dispatch(setSelectedCompany(EMPTY_COMPANY));
           }}
         >
           <DIcon
             icon="arrow-left"
-            size="16"
+            size="var(--bs-ref-spacer-6)"
           />
           {t('button.back')}
         </button>
@@ -112,7 +125,7 @@ export function PaymentDetailsForm() {
           <DIcon
             hasCircle
             icon={selectedCompany.icon}
-            size="30px"
+            size="var(--bs-ref-spacer-7)"
             theme="info"
           />
           <div>
@@ -175,13 +188,14 @@ export function PaymentDetailsForm() {
               <div className="mt-4">
                 <div className="row">
                   <div className="col-6">
-                    <DInputSelect
+                    <DSelect
                       id="payday"
                       name="payDate"
+                      defaultValue={payDates[0]}
                       disabled={!formik.values.automaticPayment}
                       label={t('bills.payday')}
                       options={payDates}
-                      onChange={({ value }) => formik.setFieldValue('payDate', value)}
+                      onChange={(data) => formik.setFieldValue('payDate', data?.value)}
                     />
                   </div>
                 </div>
@@ -192,7 +206,6 @@ export function PaymentDetailsForm() {
           <DButton
             type="submit"
             text={t('button.save')}
-            theme="primary"
             id="saveBill"
           />
         </div>

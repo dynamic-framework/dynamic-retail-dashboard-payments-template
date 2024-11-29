@@ -22,6 +22,7 @@ export type BaseAccount<T extends AccountBaseType> = {
 };
 
 export type Bill = {
+  date: string,
   type: string,
   id: number,
   service: string,
@@ -77,6 +78,8 @@ export type SelectedItem = {
 
 export type AvailablePortal = {
   modalBillDetail: { bill: Bill },
+  modalBillDelete: { bill: Bill },
+  modalBillEdit: { bill: Bill },
   modalNew: undefined,
 };
 

@@ -19,18 +19,6 @@ export type WidgetState = {
   selectedCompany: Company;
 };
 
-export const OTHER_CONFIG = {
-  taxes: {
-    theme: 'green',
-  },
-  'social-security': {
-    theme: 'yellow',
-  },
-};
-
-export type OtherConfigType = keyof typeof OTHER_CONFIG;
-export type BillConfigType = keyof typeof OTHER_CONFIG;
-
 const initialState: WidgetState = {
   accounts: [],
   bills: [],

@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getSelectedService } from '../../store/selectors';
 import { setSelectedCompany, setSelectedService } from '../../store/slice';
 
-import { EMPTY_SERVICE } from './EmprtyStates';
+import { EMPTY_SERVICE } from './EmptyStates';
 
 export function CompanySelect() {
   const { t } = useTranslation();
@@ -18,24 +18,27 @@ export function CompanySelect() {
         <button
           type="button"
           className="px-0 link-primary bg-transparent d-flex align-items-center gap-2 border-0"
-          onClick={() => { dispatch(setSelectedService(EMPTY_SERVICE)); }}
+          onClick={() => dispatch(setSelectedService(EMPTY_SERVICE))}
         >
           <DIcon
             icon="arrow-left"
-            size="16"
+            size="var(--bs-ref-spacer-6)"
           />
           {t('button.back')}
         </button>
       </div>
       <div className="row">
         {selectedService?.companies.map((company) => (
-          <div className="col-6" key={company.value}>
+          <div
+            className="col-6"
+            key={company.value}
+          >
             <div className="mb-3">
               <DQuickActionButton
                 actionIcon="chevron-right"
                 line1={company.label}
                 line2=""
-                onClick={() => { dispatch(setSelectedCompany(company)); }}
+                onClick={() => dispatch(setSelectedCompany(company))}
                 representativeIcon={company.icon}
                 representativeIconTheme="info"
               />

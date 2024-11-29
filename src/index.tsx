@@ -8,7 +8,9 @@ import './config/liquidConfig';
 import './config/i18nConfig';
 
 import App from './App';
+import ModalBillDelete from './components/modals/ModalBillDelete';
 import ModalBillDetail from './components/modals/ModalBillDetail';
+import ModalBillEdit from './components/modals/ModalBillEdit';
 import ModalNewPayment from './components/modals/ModalNewPayment';
 import reportWebVitals from './reportWebVitals';
 import { AvailablePortal } from './services/interface';
@@ -24,6 +26,8 @@ root.render(
         portalName="portal"
         availablePortals={{
           modalBillDetail: ModalBillDetail,
+          modalBillEdit: ModalBillEdit,
+          modalBillDelete: ModalBillDelete,
           modalNew: ModalNewPayment,
         }}
       >

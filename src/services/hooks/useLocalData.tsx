@@ -7,30 +7,30 @@ import { setPayDates, setServices } from '../../store/slice';
 
 const payDatesES = [
   {
-    label: 'Primer día del mes',
+    label: 'Cada primer día del mes',
     value: '1',
   },
   {
-    label: '5 de cada mes',
+    label: 'El día 5 de cada mes',
     value: '5',
   },
   {
-    label: '15 de cada mes',
+    label: 'El día 15 de cada mes',
     value: '15',
   },
 ];
 
 const payDatesEN = [
   {
-    label: 'First day of the month',
+    label: 'Each first of the month',
     value: '1',
   },
   {
-    label: '5th of the month',
+    label: 'Each month on 5th',
     value: '5',
   },
   {
-    label: '15th of the month',
+    label: 'Each month on 15th',
     value: '15',
   },
 ];

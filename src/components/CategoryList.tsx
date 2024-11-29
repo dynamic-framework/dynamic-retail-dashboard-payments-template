@@ -1,13 +1,11 @@
 import { useAppSelector } from '../store/hooks';
-import { getAccountsByCategory, getBills } from '../store/selectors';
+import { getAccountsByCategory } from '../store/selectors';
 
 import AccountCategory from './AccountCategory';
 import BillCategory from './BillCategory';
 
 export default function CategoryList() {
   const categories = useAppSelector(getAccountsByCategory);
-  const bills = useAppSelector(getBills);
-
   return (
     <div className="d-flex flex-column gap-6">
       {categories.map((category) => {
@@ -23,9 +21,7 @@ export default function CategoryList() {
           />
         );
       })}
-      <BillCategory
-        bills={bills}
-      />
+      <BillCategory />
     </div>
   );
 }
