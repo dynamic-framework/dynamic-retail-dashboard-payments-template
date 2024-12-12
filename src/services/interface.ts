@@ -76,7 +76,7 @@ export type SelectedItem = {
   value: string;
 };
 
-export type AvailablePortal = {
+export type AvailablePortalPayload = {
   modalBillDetail: { bill: Bill },
   modalBillDelete: { bill: Bill },
   modalBillEdit: { bill: Bill },

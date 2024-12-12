@@ -8,30 +8,30 @@ import { setPayDates, setServices } from '../../store/slice';
 const payDatesES = [
   {
     label: 'Cada primer día del mes',
-    value: '1',
+    value: '2023-02-01T09:43:44-03:00',
   },
   {
     label: 'El día 5 de cada mes',
-    value: '5',
+    value: '2023-02-05T09:43:44-03:00',
   },
   {
     label: 'El día 15 de cada mes',
-    value: '15',
+    value: '2023-02-15T09:43:44-03:00',
   },
 ];
 
 const payDatesEN = [
   {
     label: 'Each first of the month',
-    value: '1',
+    value: '2023-02-01T09:43:44-03:00',
   },
   {
     label: 'Each month on 5th',
-    value: '5',
+    value: '2023-02-05T09:43:44-03:00',
   },
   {
     label: 'Each month on 15th',
-    value: '15',
+    value: '2023-02-15T09:43:44-03:00',
   },
 ];
 

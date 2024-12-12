@@ -13,7 +13,7 @@ import ModalBillDetail from './components/modals/ModalBillDetail';
 import ModalBillEdit from './components/modals/ModalBillEdit';
 import ModalNewPayment from './components/modals/ModalNewPayment';
 import reportWebVitals from './reportWebVitals';
-import { AvailablePortal } from './services/interface';
+import { AvailablePortalPayload } from './services/interface';
 import store from './store/store';
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
 import './styles/base.scss';
@@ -22,7 +22,7 @@ const root = ReactDOM.createRoot(document.getElementById('dashboardPayments') as
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <DContextProvider<AvailablePortal>
+      <DContextProvider<AvailablePortalPayload>
         portalName="portal"
         availablePortals={{
           modalBillDetail: ModalBillDetail,

@@ -53,15 +53,9 @@ export type ApiDepositDetails = {
         source?: string;
       };
       paymentPoint: string;
-      paymentDates?: PaymentDates;
+      paymentDates?: ApiPayDates;
     }
   }
-};
-
-export type PaymentDates = {
-  id: number,
-  payDate: string,
-  amount: number,
 };
 
 export type ApiBill = {
@@ -79,10 +73,10 @@ export type ApiBill = {
   paidDate: string,
   date: string;
   type: string;
-  previousPayments?: PreviousPayment[];
+  previousPayments?: ApiPayDates[];
 };
 
-export type PreviousPayment = {
+export type ApiPayDates = {
   id: number,
   payDate: string,
   amount: number,

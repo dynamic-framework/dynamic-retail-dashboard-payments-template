@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getServices } from '../../store/selectors';
 import { setSelectedCompany, setSelectedService } from '../../store/slice';
 
-export function ServiceSelect() {
+export default function ServiceSelect() {
   const { t } = useTranslation();
   const services = useAppSelector(getServices);
   const [allCompanies, setAllCompanies] = useState<Company[]>([]);

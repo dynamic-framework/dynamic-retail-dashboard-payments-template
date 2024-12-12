@@ -7,7 +7,7 @@ import { setSelectedCompany, setSelectedService } from '../../store/slice';
 
 import { EMPTY_SERVICE } from './EmptyStates';
 
-export function CompanySelect() {
+export default function CompanySelect() {
   const { t } = useTranslation();
   const selectedService = useAppSelector(getSelectedService);
   const dispatch = useAppDispatch();

@@ -27,16 +27,17 @@ import {
 
 import { EMPTY_SERVICE, EMPTY_COMPANY } from './EmptyStates';
 
-export function PaymentDetailsForm() {
+export default function PaymentDetailsForm() {
   const { t } = useTranslation();
   const { toast } = useDToast();
   const dispatch = useAppDispatch();
   const { closePortal } = useDPortalContext();
   const selectedService = useAppSelector(getSelectedService);
-  const selectedCompany = useAppSelector(getSelectedCompany) || EMPTY_COMPANY;
+  const selectedCompany = useAppSelector(getSelectedCompany);
+
   const payDates = useAppSelector(getPayDates);
 
-  const NEW_BILL_SHCEMA = Yup.object().shape({
+  const NEW_BILL_SCHEMA = Yup.object().shape({
     clientID: Yup.string().required().matches(/^[0-9]+$/, t('formError.onlyDigits')),
     nickname: Yup.string().required().max(20, t('formError.maxDigits')),
   });
@@ -54,12 +55,12 @@ export function PaymentDetailsForm() {
       icon: selectedCompany.icon,
       nickname: '',
       clientID: '',
-      payDate: '',
+      payDate: payDates[0]?.value || '',
       date: '',
       automaticPayment: false,
       previousPayments: [],
     }),
-    [selectedCompany],
+    [selectedCompany, payDates],
   );
   const createNewBill = (values: Partial<Bill>): Bill => {
     const randomId = Math.floor(Math.random() * 1000000) + Date.now();
@@ -85,7 +86,7 @@ export function PaymentDetailsForm() {
   const formik = useFormik<Bill>({
     enableReinitialize: true,
     initialValues,
-    validationSchema: NEW_BILL_SHCEMA,
+    validationSchema: NEW_BILL_SCHEMA,
     onSubmit: (values) => {
       const newBill = createNewBill(values);
       dispatch(addBill(newBill));

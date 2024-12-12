@@ -5,27 +5,35 @@ import {
   PortalProps,
   useDToast,
 } from '@dynamic-framework/ui-react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AvailablePortal } from '../../services/interface';
+import { AvailablePortalPayload } from '../../services/interface';
 
-export default function ModalBillDelete({
-  payload: { bill },
-}: PortalProps<AvailablePortal['modalBillDelete']>) {
+export default function ModalBillDelete(
+  {
+    payload: {
+      bill,
+    },
+  }: PortalProps<AvailablePortalPayload['modalBillDelete']>,
+) {
   const { closePortal } = useDPortalContext();
   const { t } = useTranslation();
   const { toast } = useDToast();
 
-  const deleteBill = () => {
+  const deleteBill = useCallback(() => {
     closePortal();
-    toast({
-      title: t('utilities.successDelete'),
-      theme: 'success',
-      soft: true,
-    }, {
-      duration: 3000,
-    });
-  };
+    toast(
+      {
+        title: t('utilities.successDelete'),
+        theme: 'success',
+        soft: true,
+      },
+      {
+        duration: 3000,
+      },
+    );
+  }, [closePortal, t, toast]);
 
   return (
     <DModal
@@ -46,11 +54,12 @@ export default function ModalBillDelete({
           <DButton
             text={t('button.cancel')}
             theme="dark"
+            variant="link"
             onClick={closePortal}
           />
           <DButton
-            text={t('button.delete')}
-            theme="danger"
+            text={t('button.yesDelete')}
+            theme="primary"
             onClick={deleteBill}
           />
         </div>

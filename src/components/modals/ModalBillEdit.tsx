@@ -8,16 +8,20 @@ import {
   PortalProps,
   useDToast,
 } from '@dynamic-framework/ui-react';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AvailablePortal } from '../../services/interface';
+import { AvailablePortalPayload } from '../../services/interface';
 import { useAppSelector } from '../../store/hooks';
 import { getPayDates } from '../../store/selectors';
 
-export default function ModalBillEdit({
-  payload: { bill },
-}: PortalProps<AvailablePortal['modalBillEdit']>) {
+export default function ModalBillEdit(
+  {
+    payload: {
+      bill,
+    },
+  }: PortalProps<AvailablePortalPayload['modalBillEdit']>,
+) {
   const { t } = useTranslation();
   const { closePortal, openPortal } = useDPortalContext();
   const { toast } = useDToast();
@@ -27,21 +31,24 @@ export default function ModalBillEdit({
 
   const payDates = useAppSelector(getPayDates);
 
-  const openDeleteModal = () => {
+  const openDeleteModal = useCallback(() => {
     closePortal();
     openPortal('modalBillDelete', { bill });
-  };
+  }, [closePortal, openPortal, bill]);
 
-  const saveModal = () => {
-    toast({
-      title: t('utilities.successSave'),
-      theme: 'success',
-      soft: true,
-    }, {
-      duration: 3000,
-    });
+  const saveModal = useCallback(() => {
+    toast(
+      {
+        title: t('utilities.successSave'),
+        theme: 'success',
+        soft: true,
+      },
+      {
+        duration: 3000,
+      },
+    );
     closePortal();
-  };
+  }, [toast, t, closePortal]);
 
   return (
     <DModal
@@ -107,7 +114,6 @@ export default function ModalBillEdit({
             variant="outline"
             type="button"
           />
-
           <DButton
             onClick={saveModal}
             text={t('button.save')}

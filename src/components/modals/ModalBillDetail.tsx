@@ -3,25 +3,34 @@ import {
   DModal,
   useDPortalContext,
   PortalProps,
+  useFormatCurrency,
 } from '@dynamic-framework/ui-react';
 import { DateTime } from 'luxon';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FORMAT_DATE } from '../../config/widgetConfig';
-import { AvailablePortal } from '../../services/interface';
+import { AvailablePortalPayload } from '../../services/interface';
 
-export default function ModalBillDetail({
-  payload: { bill },
-}: PortalProps<AvailablePortal['modalBillDetail']>) {
+export default function ModalBillDetail(
+  {
+    payload: {
+      bill,
+    },
+  }: PortalProps<AvailablePortalPayload['modalBillDetail']>,
+) {
   const { t } = useTranslation();
   const { closePortal, openPortal } = useDPortalContext();
 
-  const handleEdit = () => {
+  const handleEdit = useCallback(() => {
     closePortal();
     openPortal('modalBillEdit', { bill });
-  };
-
-  const formatDate = (date: string): string => DateTime.fromISO(date).toFormat(FORMAT_DATE);
+  }, [closePortal, openPortal, bill]);
+  const { format } = useFormatCurrency();
+  const formatDate = useMemo(
+    () => (date: string) => DateTime.fromISO(date).toFormat(FORMAT_DATE),
+    [],
+  );
 
   return (
     <DModal
@@ -74,38 +83,34 @@ export default function ModalBillDetail({
             <div>
               <hr className="my-8" />
               <h5>{t('bills.previousPayments')}</h5>
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">{t('bills.id')}</th>
-                    <th scope="col">{t('bills.date')}</th>
-                    <th scope="col">{t('bills.amount')}</th>
-                    <th
-                      scope="col"
-                      aria-hidden="true"
-                    />
-                  </tr>
-                </thead>
-                <tbody>
-                  {bill.previousPayments.map((payment) => (
-                    <tr key={payment.id}>
-                      <td>{payment.id}</td>
-                      <td>{formatDate(bill.payDate)}</td>
-                      <td>{payment.amount}</td>
-                      <td>
-                        <a
-                          target="_blank"
-                          rel="noreferrer"
-                          href="https://cdn.modyo.cloud/uploads/e3d9d615-25e9-4d92-a3b0-b7ff063a9f77/original/voucher.pdf"
-                          download="voucher.pdf"
-                        >
-                          <i className="bi bi-download" />
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <div className="d-flex flex-column gap-2 px-2 mt-2">
+                {bill.previousPayments.map((payment) => (
+                  <div
+                    className="row align-items-center border rounded p-2"
+                    key={payment.id}
+                  >
+                    <div className="col">
+                      <p className="mb-0">
+                        {payment.id}
+                      </p>
+                      <small>{formatDate(bill.payDate)}</small>
+                    </div>
+                    <div className="col d-flex gap-4 justify-content-end">
+                      <p className="mb-0">
+                        {format(payment.amount)}
+                      </p>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://cdn.modyo.cloud/uploads/e3d9d615-25e9-4d92-a3b0-b7ff063a9f77/original/voucher.pdf"
+                        download="voucher.pdf"
+                      >
+                        <i className="bi bi-download" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
