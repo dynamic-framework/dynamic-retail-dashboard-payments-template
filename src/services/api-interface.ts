@@ -11,21 +11,21 @@ export type ApiAccountAccountType = 'LOAN' | 'CREDIT_CARD';
 export type ApiAccountType = 'LOAN';
 
 export type ApiAccount = {
-  id: number;
+  id: string;
   alias: string;
-  account_number: string;
+  accountNumber: string;
   type: ApiAccountType;
-  account_type: ApiAccountAccountType;
-  accounting_balance: number;
-  available_balance: number;
+  accountType: ApiAccountAccountType;
+  accountingBalance: number;
+  availableBalance: number;
   currency: string;
-  total_charges: number;
-  total_incomes: number;
+  totalCharges: number;
+  totalIncomes: number;
   closed_at: string;
   created: string;
   modified: string;
   status: string;
-  deposit_details?: ApiDepositDetails;
+  depositDetails?: ApiDepositDetails;
   loan_details?: ApiLoanDetails;
 };
 
