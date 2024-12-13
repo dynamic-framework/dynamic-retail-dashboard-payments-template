@@ -17,10 +17,13 @@ export default function ModalBillDelete(
     },
   }: PortalProps<AvailablePortalPayload['modalBillDelete']>,
 ) {
-  const { closePortal } = useDPortalContext();
+  const { closePortal, openPortal } = useDPortalContext();
   const { t } = useTranslation();
   const { toast } = useDToast();
-
+  const handleEdit = useCallback(() => {
+    closePortal();
+    openPortal('modalBillEdit', { bill });
+  }, [closePortal, openPortal, bill]);
   const deleteBill = useCallback(() => {
     closePortal();
     toast(
@@ -55,7 +58,7 @@ export default function ModalBillDelete(
             text={t('button.cancel')}
             theme="dark"
             variant="link"
-            onClick={closePortal}
+            onClick={handleEdit}
           />
           <DButton
             text={t('button.yesDelete')}

@@ -71,7 +71,7 @@ export default function BillItem({ bill }: Props) {
                 {bill.company}
                 <span> · </span>
                 {t('bills.clientNumber')}
-                {bill.clientID}
+                {bill.clientId}
               </small>
             </p>
             <small className="text-light-emphasis text-balance">

@@ -53,7 +53,7 @@ export default function ModalBillDetail(
               </tr>
               <tr>
                 <th>{t('bills.clientNumber')}</th>
-                <td>{bill.clientID}</td>
+                <td>{bill.clientId}</td>
               </tr>
               <tr>
                 <th>{t('bills.service')}</th>

@@ -38,7 +38,7 @@ export default function PaymentDetailsForm() {
   const payDates = useAppSelector(getPayDates);
 
   const NEW_BILL_SCHEMA = Yup.object().shape({
-    clientID: Yup.string().required().matches(/^[0-9]+$/, t('formError.onlyDigits')),
+    clientId: Yup.string().required().matches(/^[0-9]+$/, t('formError.onlyDigits')),
     nickname: Yup.string().required().max(20, t('formError.maxDigits')),
   });
 
@@ -54,7 +54,7 @@ export default function PaymentDetailsForm() {
       company: selectedCompany.label,
       icon: selectedCompany.icon,
       nickname: '',
-      clientID: '',
+      clientId: '',
       payDate: payDates[0]?.value || '',
       date: '',
       automaticPayment: false,
@@ -76,7 +76,7 @@ export default function PaymentDetailsForm() {
       company: selectedCompany.label,
       icon: selectedCompany.icon,
       nickname: values.nickname || '',
-      clientID: values.clientID || '',
+      clientId: values.clientId || '',
       payDate: values.payDate || '',
       automaticPayment: values.automaticPayment || false,
       previousPayments: [],
@@ -140,13 +140,13 @@ export default function PaymentDetailsForm() {
           <DInput
             label={t('bills.clientNumber')}
             id="idClient"
-            name="clientID"
+            name="clientId"
             type="text"
             pattern="\d*"
             maxLength={20}
-            value={formik.values.clientID}
-            invalid={formik.touched.clientID && !!formik.errors.clientID}
-            onChange={(e) => formik.setFieldValue('clientID', e)}
+            value={formik.values.clientId}
+            invalid={formik.touched.clientId && !!formik.errors.clientId}
+            onChange={(e) => formik.setFieldValue('clientId', e)}
           />
         </div>
         <div className="col-12 mb-2">

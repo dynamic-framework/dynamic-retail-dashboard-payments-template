@@ -2,7 +2,7 @@ export type ApiErrorItem = {
   status: string;
   code: string;
   title: string;
-  messageCode: string;
+  message_code: string;
   detail: string;
 };
 
@@ -13,20 +13,20 @@ export type ApiAccountType = 'LOAN';
 export type ApiAccount = {
   id: number;
   alias: string;
-  accountNumber: string;
+  account_number: string;
   type: ApiAccountType;
-  accountType: ApiAccountAccountType;
-  accountingBalance: number;
-  availableBalance: number;
+  account_type: ApiAccountAccountType;
+  accounting_balance: number;
+  available_balance: number;
   currency: string;
-  totalCharges: number;
-  totalIncomes: number;
-  closedAt: string;
+  total_charges: number;
+  total_incomes: number;
+  closed_at: string;
   created: string;
   modified: string;
   status: string;
-  depositDetails?: ApiDepositDetails;
-  loanDetails?: ApiLoanDetails;
+  deposit_details?: ApiDepositDetails;
+  loan_details?: ApiLoanDetails;
 };
 
 export type ApiDepositDetails = {
@@ -34,52 +34,52 @@ export type ApiDepositDetails = {
     total: number;
     available: number;
     unavailable: number;
-  }
+  };
   overdraft?: {
     limit: number;
     total: number;
     available: number;
-    expiryDate: string;
+    expiry_date: string;
   };
-  maturityDate?: string;
+  maturity_date?: string;
   interest: {
     accrued: number;
-    accruedNegative: number;
+    accrued_negative: number;
     settings?: {
-      rateSettings?: {
+      rate_settings?: {
         rate?: number;
         tiers?: number;
         terms?: string;
         source?: string;
       };
-      paymentPoint: string;
-      paymentDates?: ApiPayDates;
-    }
-  }
+      payment_point: string;
+      payment_dates?: ApiPayDates;
+    };
+  };
 };
 
 export type ApiBill = {
   amount: number;
-  id: number,
-  service: string,
-  company: string,
-  nickname: string,
-  icon: string,
-  clientID: string,
-  text: string,
-  payDate: string,
-  automaticPayment: boolean,
-  paid: boolean,
-  paidDate: string,
+  id: number;
+  service: string;
+  company: string;
+  nickname: string;
+  icon: string;
+  client_id: string;
+  text: string;
+  pay_date: string;
+  automatic_payment: boolean;
+  paid: boolean;
+  paid_date: string;
   date: string;
   type: string;
-  previousPayments?: ApiPayDates[];
+  previous_payments?: ApiPayDates[];
 };
 
 export type ApiPayDates = {
-  id: number,
-  payDate: string,
-  amount: number,
+  id: number;
+  pay_date: string;
+  amount: number;
 };
 
 export type ApiLoanDetails = {
@@ -87,16 +87,16 @@ export type ApiLoanDetails = {
   balances: {
     owed: number;
     remaining: number;
-  }
+  };
   due: number;
-  daysInArrears: number;
-  daysLate: number;
-  dueSinceDate: string;
+  days_in_arrears: number;
+  days_late: number;
+  due_since_date: string;
   installments: number;
   interest: {
     accrued: number;
-    accruedInBillingCycle: number;
-    accruedFromArrears: number;
+    accrued_in_billing_cycle: number;
+    accrued_from_arrears: number;
     settings: {
       rate: number;
       rates: null;
@@ -107,7 +107,7 @@ export type ApiLoanDetails = {
 };
 
 export type ApiTransaction = {
-  repaymentId: string;
+  repayment_id: string;
   name: string;
   date: string;
   amount: number;

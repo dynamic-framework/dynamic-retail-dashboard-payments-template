@@ -29,7 +29,7 @@ export type Bill = {
   company: string,
   nickname: string,
   icon: string,
-  clientID: string,
+  clientId: string,
   text: string,
   payDate: string,
   amount: number,
