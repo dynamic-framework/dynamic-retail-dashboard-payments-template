@@ -33,7 +33,7 @@ export default function AccountItem({ account }: Props) {
         <DIcon
           hasCircle
           icon={AccountTypeConfig[account.type].icon}
-          size="1.5rem"
+          size="var(--bs-ref-spacer-6)"
           theme={AccountTypeConfig[account.type].theme}
         />
         <div className="d-flex flex-column flex-grow-1">
@@ -42,9 +42,7 @@ export default function AccountItem({ account }: Props) {
         </div>
         <DButton
           text={t('button.pay')}
-          theme="secondary"
-          variant="link"
-          className="text-decoration-underline"
+          size="sm"
         />
       </div>
     </a>

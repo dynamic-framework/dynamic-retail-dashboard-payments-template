@@ -13,6 +13,58 @@
   },
   "button": {
     "pay": "Pagar",
-    "addPayment": "Inscribir pagos"
+    "addPayment": "Inscribir pagos",
+    "back": "Volver",
+    "edit": "Editar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "yesDelete": "Si, eliminar",
+    "save": "Guardar"
+  },
+  "features": {
+    "title": "Otras funciones de pago",
+    "newPayment": "Agregar nuevo pago",
+    "recharges": "Recargas telefónica y transporte",
+    "preauthorized": "Pagos preautorizados",
+    "history": "Historial de pagos",
+    "onetime": "Pago único"
+  },
+  "bills": {
+    "title": "Facturas",
+    "deleteBill": "Eliminar factura",
+    "editBill": "Editar factura",
+    "clientNumber": "Número de cliente",
+    "service": "Serivio",
+    "company": "Compañia",
+    "nickname": "Alias",
+    "preview": "Ver pagos previos",
+    "next": "Próximo pago el ",
+    "paid": "Último pago de",
+    "expiration": "vence el",
+    "total": "Total a pagar",
+    "noDebt": "No hay deuda",
+    "detail": "Mas detalles",
+    "billDetails": "Detalles de la factura",
+    "previousPayments": "Últimos pagos",
+    "id": "Identificador",
+    "date": "Fecha",
+    "amount": "Monto",
+    "paymentType": "Tipo de pago",
+    "manualPayment": "Pago manual",
+    "automaticPayment": "Pago automatico",
+    "payday": "Día de pago",
+    "endMandate": "Fin del mandato",
+    "selectCompany": "Selecciona un serivicio",
+    "serviceList": "Listado de servicios"
+  },
+  "formError": {
+    "onlyDigits": "Deben ser solo 20 caracteres",
+    "maxDigits": "Máximo 20 caracteres"
+  },
+  "utilities": {
+    "successCreated":"La factura fue creada correctamente",
+    "successSave":"La factura se guardo correctamente",
+    "successDelete":"La factura se ha eliminado de sus pagos",
+    "deleteConfirmation":"Esta seguro que desea eliminar {bill} de sus pagos?"
   }
 }
