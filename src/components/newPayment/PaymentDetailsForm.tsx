@@ -144,6 +144,7 @@ export default function PaymentDetailsForm() {
             type="text"
             pattern="\d*"
             maxLength={20}
+            title={t('formError.onlyDigits')}
             value={formik.values.clientId}
             invalid={formik.touched.clientId && !!formik.errors.clientId}
             onChange={(e) => formik.setFieldValue('clientId', e)}
