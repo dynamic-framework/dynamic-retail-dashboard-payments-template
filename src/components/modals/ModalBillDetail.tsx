@@ -73,7 +73,7 @@ export default function ModalBillDetail(
               </tr>
               {bill.automaticPayment && (
                 <tr>
-                  <th>{t('bills.payday')}</th>
+                  <th>{t('bills.payDate')}</th>
                   <td>{formatDate(bill.payDate)}</td>
                 </tr>
               )}

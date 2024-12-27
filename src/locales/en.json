@@ -27,7 +27,7 @@
     "recharges": "Phone and transport recharges",
     "preauthorized": "Pre-authorized payments",
     "history": "Payments history",
-    "onetime": "One time payment"
+    "onetime": "One-time payment"
   },
   "bills": {
     "title": "Bills",
@@ -39,7 +39,7 @@
     "nickname": "Alias",
     "preview": "See preview payments",
     "expiration": "expiration at",
-    "noDebt": "There is no debt",
+    "noDebt": "No outstanding dues",
     "detail": "More details",
     "billDetails": "Bill details",
     "previousPayments": "Previous payments",
@@ -50,6 +50,7 @@
     "manualPayment": "Manual bill payment",
     "automaticPayment": "Automatic bill payment",
     "payday": "Payment Schedule",
+    "payDate": "Payment date",
     "endMandate": "End of mandate",
     "selectCompany": "Select a company",
     "serviceList": "Services list",

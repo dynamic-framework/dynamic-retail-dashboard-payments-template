@@ -53,6 +53,7 @@
     "manualPayment": "Pago manual",
     "automaticPayment": "Pago automatico",
     "payday": "Día de pago",
+    "payDate": "Fecha de pago",
     "endMandate": "Fin del mandato",
     "selectCompany": "Selecciona un serivicio",
     "serviceList": "Listado de servicios"
