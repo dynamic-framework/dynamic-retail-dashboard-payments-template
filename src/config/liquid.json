@@ -11,6 +11,12 @@
     "currency-decimal": ",",
     "accounts-path": "accounts",
     "pay-debt-path": "#",
-    "api-path": "https://stoplight.io/mocks/modyo/dynamic/204091081"
+    "pay-bill-path": "#",
+    "api-path": "https://stoplight.io/mocks/modyo/dynamic/204091081",
+    "one-time-path": "#",
+    "recharges": "#",
+    "preauthorized": "#",
+    "payment-history": "#",
+    "format-date": "dd/MM/yyyy"
   }
 }

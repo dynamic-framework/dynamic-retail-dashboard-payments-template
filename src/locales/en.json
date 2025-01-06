@@ -13,6 +13,59 @@
   },
   "button": {
     "pay": "Pay",
-    "addPayment": "Add payment"
+    "addPayment": "Add payment",
+    "back": "Back",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "yesDelete": "Yes, delete",
+    "save": "Save"
+  },
+  "features": {
+    "title": "Other payment features",
+    "newPayment": "Add New Payment",
+    "recharges": "Phone and transport recharges",
+    "preauthorized": "Pre-authorized payments",
+    "history": "Payments history",
+    "onetime": "One-time payment"
+  },
+  "bills": {
+    "title": "Bills",
+    "deleteBill": "Delete bill",
+    "editBill": "Edit bill",
+    "clientNumber": "Client number",
+    "service": "Service",
+    "company": "Company",
+    "nickname": "Alias",
+    "preview": "See preview payments",
+    "expiration": "expiration at",
+    "noDebt": "No outstanding dues",
+    "detail": "More details",
+    "billDetails": "Bill details",
+    "previousPayments": "Previous payments",
+    "id": "Identifier",
+    "date": "Date",
+    "amount": "Amount",
+    "paymentType": "Payment type",
+    "manualPayment": "Manual bill payment",
+    "automaticPayment": "Automatic bill payment",
+    "payday": "Payment Schedule",
+    "payDate": "Payment date",
+    "endMandate": "End of mandate",
+    "selectCompany": "Select a company",
+    "serviceList": "Services list",
+    "totalPay": "Total to pay {amount}, expiration at {date}",
+    "lastPay": "Last payment of {amount} on {date}",
+    "nextPay": "Next payment on {date}"
+  },
+  "formError": {
+    "onlyDigits": "Must be only digits",
+    "maxDigits": "Must be max 20 digits"
+  },
+  "utilities": {
+    "successCreated":"The payment data has been created successfully",
+    "successSave":"The payment has been saved successfully",
+    "successDelete":"The bill has been removed from your payments",
+    "deleteConfirmation":"Are you sure you want to remove the {bill} from your payments?"
   }
 }

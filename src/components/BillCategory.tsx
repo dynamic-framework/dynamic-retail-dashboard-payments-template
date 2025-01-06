@@ -1,30 +1,31 @@
 import { DCollapse } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
-import OtherItem from './OtherItem';
-import type { OtherItemType } from './OtherItem';
+import { useAppSelector } from '../store/hooks';
+import { getBills } from '../store/selectors';
 
-interface Props {
-  type: OtherItemType['type'];
-  items: Array<OtherItemType['item']>;
-}
+import BillItem from './BillItem';
 
-export default function OtherCategory({ type, items }: Props) {
+export default function BillCategory() {
   const { t } = useTranslation();
+  const bills = useAppSelector(getBills);
 
   return (
     <DCollapse
-      defaultCollapsed
       className="shadow-sm rounded"
+      defaultCollapsed={!!bills.length}
       Component={(
         <h2 className="fs-6 py-2 text-gray-700 fw-bold text-truncate">
-          {t(`account.${type}`)}
+          {t('bills.title')}
         </h2>
       )}
     >
       <div className="d-flex flex-column gap-4">
-        {items.map((item) => (
-          <OtherItem key={item.id} item={item} type={type} />
+        {bills.map((bill) => (
+          <BillItem
+            key={bill.id}
+            bill={bill}
+          />
         ))}
       </div>
     </DCollapse>
