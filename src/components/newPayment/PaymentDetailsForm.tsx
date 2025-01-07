@@ -139,16 +139,19 @@ export default function PaymentDetailsForm() {
         <div className="col-12 mb-2">
           <DInput
             label={t('bills.clientNumber')}
-            id="idClient"
+            id="clientId"
             name="clientId"
             type="text"
-            pattern="\d*"
             maxLength={20}
-            title={t('formError.onlyDigits')}
             value={formik.values.clientId}
             invalid={formik.touched.clientId && !!formik.errors.clientId}
-            onChange={(e) => formik.setFieldValue('clientId', e)}
+            onChange={(e) => {
+              if (/^\d*$/.test(e) && e.length <= 20) {
+                formik.setFieldValue('clientId', e);
+              }
+            }}
           />
+
         </div>
         <div className="col-12 mb-2">
           <DInput
