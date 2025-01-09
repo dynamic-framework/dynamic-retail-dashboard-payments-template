@@ -2,9 +2,12 @@ import CategoryList from './components/CategoryList';
 import DashboardFeatures from './components/DashboardFeatures';
 import CategoryLoader from './components/loaders/CategoryLoader';
 import useLoanAccountsCategorized from './services/hooks/useLoanAccountsCategorized';
+import useLocalData from './services/hooks/useLocalData';
 
 export default function App() {
   const { loading } = useLoanAccountsCategorized();
+  useLocalData();
+
   return (
     <div className="container">
       <div className="py-4">

@@ -10,7 +10,9 @@ import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FORMAT_DATE } from '../../config/widgetConfig';
+import useBillActivity from '../../services/hooks/useBillActivity';
 import { AvailablePortalPayload } from '../../services/interface';
+import BillActivityLoader from '../loaders/BillActivityLoader';
 
 export default function ModalBillDetail(
   {
@@ -21,6 +23,7 @@ export default function ModalBillDetail(
 ) {
   const { t } = useTranslation();
   const { closePortal, openPortal } = useDPortalContext();
+  const { data: previousPayments, loading } = useBillActivity(bill.id);
 
   const handleEdit = useCallback(() => {
     closePortal();
@@ -49,69 +52,69 @@ export default function ModalBillDetail(
             <tbody>
               <tr>
                 <th>{t('bills.nickname')}</th>
-                <td>{bill.nickname}</td>
+                <td>{bill.accountNickname}</td>
               </tr>
               <tr>
-                <th>{t('bills.clientNumber')}</th>
-                <td>{bill.clientId}</td>
+                <th>{t('bills.clientNumberLabel')}</th>
+                <td>{bill.clientNumber}</td>
               </tr>
               <tr>
                 <th>{t('bills.service')}</th>
-                <td>{bill.service}</td>
+                <td>{bill.provider.category.name}</td>
               </tr>
               <tr>
                 <th>{t('bills.company')}</th>
-                <td>{bill.company}</td>
+                <td>{bill.provider.name}</td>
               </tr>
               <tr>
                 <th>{t('bills.paymentType')}</th>
                 <td>
-                  {bill.automaticPayment
+                  {bill.isAutomaticallyPaid
                     ? t('bills.automaticPayment')
                     : t('bills.manualPayment')}
                 </td>
               </tr>
-              {bill.automaticPayment && (
+              {bill.isAutomaticallyPaid && (
                 <tr>
                   <th>{t('bills.payDate')}</th>
-                  <td>{formatDate(bill.payDate)}</td>
+                  <td>{formatDate(bill.paymentDueDetails.dueDate)}</td>
                 </tr>
               )}
             </tbody>
           </table>
-          {bill.previousPayments && bill.previousPayments.length > 0 && (
-            <div>
-              <hr className="my-8" />
-              <h5>{t('bills.previousPayments')}</h5>
-              <div className="d-flex flex-column gap-2 px-2 mt-2">
-                {bill.previousPayments.map((payment) => (
-                  <div
-                    className="row align-items-center border rounded p-2"
-                    key={payment.id}
+          <hr className="my-8" />
+          <h5 className="mb-4">{t('bills.previousPayments')}</h5>
+          {loading && <BillActivityLoader />}
+          {previousPayments && previousPayments.length > 0 && (
+
+          <div className="d-flex flex-column gap-2 container-fluid">
+            {previousPayments.map((payment) => (
+              <div
+                className="row align-items-center border rounded p-2"
+                key={payment.id}
+              >
+                <div className="col">
+                  <p className="mb-0">
+                    {payment.documentId}
+                  </p>
+                  <small>{formatDate(payment.effectiveDate)}</small>
+                </div>
+                <div className="col d-flex gap-4 justify-content-end">
+                  <p className="mb-0">
+                    {format(payment.amount)}
+                  </p>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://cdn.modyo.cloud/uploads/e3d9d615-25e9-4d92-a3b0-b7ff063a9f77/original/voucher.pdf"
+                    download="voucher.pdf"
                   >
-                    <div className="col">
-                      <p className="mb-0">
-                        {payment.id}
-                      </p>
-                      <small>{formatDate(bill.payDate)}</small>
-                    </div>
-                    <div className="col d-flex gap-4 justify-content-end">
-                      <p className="mb-0">
-                        {format(payment.amount)}
-                      </p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="https://cdn.modyo.cloud/uploads/e3d9d615-25e9-4d92-a3b0-b7ff063a9f77/original/voucher.pdf"
-                        download="voucher.pdf"
-                      >
-                        <i className="bi bi-download" />
-                      </a>
-                    </div>
-                  </div>
-                ))}
+                    <i className="bi bi-download" />
+                  </a>
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
           )}
         </div>
       </DModal.Body>

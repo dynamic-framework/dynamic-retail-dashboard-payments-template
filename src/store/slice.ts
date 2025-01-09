@@ -9,7 +9,8 @@ import {
 } from '../services/interface';
 
 export type WidgetState = {
-  accounts: Account[];
+  accountCards: Account[];
+  accountLoans: Account[],
   bills: Bill[];
   otherCategories: Record<string, unknown>;
   payDates: PayDateOption[];
@@ -20,7 +21,8 @@ export type WidgetState = {
 };
 
 const initialState: WidgetState = {
-  accounts: [],
+  accountCards: [],
+  accountLoans: [],
   bills: [],
   otherCategories: {},
   payDates: [],
@@ -43,8 +45,11 @@ const slice = createSlice({
   name: 'widget',
   initialState,
   reducers: {
-    setAccounts(state, action: PayloadAction<Account[]>) {
-      state.accounts = action.payload;
+    setAccountCards(state, action: PayloadAction<Account[]>) {
+      state.accountCards = action.payload;
+    },
+    setAccountLoans(state, action: PayloadAction<Account[]>) {
+      state.accountLoans = action.payload;
     },
     setBills(state, action: PayloadAction<Bill[]>) {
       state.bills = action.payload;
@@ -67,19 +72,12 @@ const slice = createSlice({
     setScheduledPayments(state, action: PayloadAction<Array<Record<string, unknown>>>) {
       state.scheduledPayments = action.payload;
     },
-    addAccount(state, action: PayloadAction<Account>) {
-      state.accounts = [...state.accounts, action.payload];
-    },
-    addBill(state, action: PayloadAction<Bill>) {
-      if (state.bills) {
-        state.bills = [...state.bills, action.payload];
-      }
-    },
   },
 });
 
 export const {
-  setAccounts,
+  setAccountCards,
+  setAccountLoans,
   setBills,
   setOtherCategories,
   setPayDates,
@@ -87,7 +85,5 @@ export const {
   setScheduledPayments,
   setSelectedService,
   setSelectedCompany,
-  addAccount,
-  addBill,
 } = slice.actions;
 export default slice.reducer;

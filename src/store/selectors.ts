@@ -1,43 +1,24 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 import { EMPTY_COMPANY } from '../components/newPayment/EmptyStates';
-import { AccountTypeConfig } from '../services/config';
-import { Account } from '../services/interface';
 
 import { RootState } from './store';
 
 const getState = (state: RootState) => state.widget;
 
-export const getAccounts = createSelector(
+export const getAccountCards = createSelector(
   getState,
-  (widget) => widget.accounts,
+  (widget) => widget.accountCards,
+);
+
+export const getAccountLoans = createSelector(
+  getState,
+  (widget) => widget.accountLoans,
 );
 
 export const getBills = createSelector(
   getState,
   (widget) => widget.bills,
-);
-
-export const getAccountsByCategory = createSelector(
-  getAccounts,
-  (data) => (
-    (Object.values(
-      data.reduce((categorized, account: Account) => {
-        const category = categorized[account.type];
-        const { accounts = [] } = category;
-        return {
-          ...categorized,
-          [account.type]: {
-            ...category,
-            accounts: [
-              ...accounts,
-              account,
-            ],
-          },
-        };
-      }, AccountTypeConfig),
-    ))
-  ),
 );
 
 export const getOtherCategories = createSelector(
