@@ -26,8 +26,8 @@ export default function ModalBillEdit(
   const { closePortal, openPortal } = useDPortalContext();
   const { toast } = useDToast();
 
-  const [nickname, setNickname] = useState(bill.nickname || '');
-  const [automaticPayment, setAutomaticPayment] = useState(bill.automaticPayment);
+  const [nickname, setNickname] = useState(bill.accountNickname || '');
+  const [automaticPayment, setAutomaticPayment] = useState(bill.isAutomaticallyPaid);
 
   const payDates = useAppSelector(getPayDates);
 
