@@ -4,12 +4,12 @@ export enum AccountBaseType {
 }
 
 export enum AccountType {
-  CreditCard = 'credit-card',
-  Loan = 'loan',
+  CREDIT_CARD = 'CREDIT_CARD',
+  LOAN = 'LOAN',
 }
 
 export const AccountTypeConfig = {
-  [AccountType.CreditCard]: {
+  CREDIT_CARD: {
     name: 'Credit Cards',
     theme: 'indigo',
     icon: 'credit-card',
@@ -17,7 +17,7 @@ export const AccountTypeConfig = {
     id: 'credit-card',
     type: 'credit-card',
   },
-  [AccountType.Loan]: {
+  LOAN: {
     name: 'Loans',
     theme: 'yellow',
     icon: 'cash-stack',
@@ -27,7 +27,4 @@ export const AccountTypeConfig = {
   },
 };
 
-export const ApiAccountTypeConfig = {
-  LOAN: AccountType.Loan,
-  CREDIT_CARD: AccountType.CreditCard,
-};
+export type Icon = keyof typeof AccountTypeConfig;

@@ -15,7 +15,7 @@ export default function BillCategory() {
       className="shadow-sm rounded"
       defaultCollapsed={!!bills.length}
       Component={(
-        <h2 className="fs-6 py-2 text-gray-700 fw-bold text-truncate">
+        <h2 className="fs-6 py-2 fw-bold text-truncate">
           {t('bills.title')}
         </h2>
       )}

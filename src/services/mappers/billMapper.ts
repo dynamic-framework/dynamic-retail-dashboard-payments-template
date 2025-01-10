@@ -3,24 +3,17 @@ import { Bill } from '../interface';
 
 export default function billMapper(apiBill: ApiBill): Bill {
   return {
-    amount: apiBill.amount,
     id: apiBill.id,
-    service: apiBill.service,
-    company: apiBill.company,
-    nickname: apiBill.nickname,
-    icon: apiBill.icon,
-    clientId: apiBill.client_id,
-    text: apiBill.text,
-    payDate: apiBill.pay_date,
-    automaticPayment: apiBill.automatic_payment,
-    paid: apiBill.paid,
-    paidDate: apiBill.paid_date,
-    date: apiBill.date,
-    type: apiBill.type,
-    previousPayments: apiBill.previous_payments?.map((payDate) => ({
-      id: payDate.id,
-      payDate: payDate.pay_date,
-      amount: payDate.amount,
-    })),
+    date: apiBill.enrollment_date,
+    service: apiBill.provider.name,
+    company: apiBill.provider.name,
+    nickname: apiBill.account_nickname,
+    icon: apiBill.provider.category.code,
+    clientId: apiBill.client_number,
+    payDate: apiBill.payment_due_details.due_date,
+    amount: apiBill.payment_due_details.due_amount,
+    automaticPayment: apiBill.is_automatically_paid,
+    paid: apiBill.payment_due_details.payment_details.is_paid,
+    paidDate: apiBill.payment_due_details.due_date,
   };
 }

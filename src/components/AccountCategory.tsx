@@ -7,7 +7,7 @@ import AccountItem from './AccountItem';
 
 interface Props {
   type: string;
-  accounts: Array<Account>;
+  accounts: Account[];
 }
 
 export default function AccountCategory({ type, accounts }: Props) {
@@ -18,7 +18,7 @@ export default function AccountCategory({ type, accounts }: Props) {
       className="shadow-sm rounded"
       defaultCollapsed={!!accounts.length}
       Component={(
-        <h2 className="fs-6 py-2 text-gray-700 fw-bold text-truncate">
+        <h2 className="fs-6 py-2 fw-bold text-truncate">
           {t(`account.${type}`)}
         </h2>
       )}

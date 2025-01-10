@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { SITE_PATH, SITE_URL } from '../config/widgetConfig';
-import { AccountTypeConfig } from '../services/config';
+import { AccountTypeConfig, Icon } from '../services/config';
 import type { Account } from '../services/interface';
 
 interface Props {
@@ -32,13 +32,13 @@ export default function AccountItem({ account }: Props) {
       <div className="d-flex gap-4 align-items-center w-100">
         <DIcon
           hasCircle
-          icon={AccountTypeConfig[account.type].icon}
+          icon={AccountTypeConfig[account.group as Icon].icon}
           size="var(--bs-ref-spacer-6)"
-          theme={AccountTypeConfig[account.type].theme}
+          theme={AccountTypeConfig[account.group as Icon].theme}
         />
         <div className="d-flex flex-column flex-grow-1">
-          <p className="mb-0 fw-bold text-light-emphasis">{account.alias ?? account.name}</p>
-          <small className="text-light-emphasis">{account.accountNumber}</small>
+          <p className="mb-0 fw-bold">{account.accountHolderName}</p>
+          <small className="text-light-emphasis">{account.group === 'CREDIT_CARD' ? account.maskedNumber : account.number}</small>
         </div>
         <DButton
           text={t('button.pay')}

@@ -1,15 +1,24 @@
 import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { getAccounts, getBills } from '../../store/selectors';
-import { setAccounts, setBills } from '../../store/slice';
+import {
+  getAccountCards,
+  getAccountLoans,
+  getBills,
+} from '../../store/selectors';
+import {
+  setAccountCards,
+  setAccountLoans,
+  setBills,
+} from '../../store/slice';
 import errorHandler from '../../utils/errorHandler';
-import { AccountRepository, BillRepository } from '../repositories';
+import { BillRepository, AccountRepository } from '../repositories';
 import ApiError from '../utils/ApiError';
 
 export default function useLoanAccountsCategorized() {
   const [loading, setLoading] = useState(false);
-  const accounts = useAppSelector(getAccounts);
+  const accountCards = useAppSelector(getAccountCards);
+  const accountLoans = useAppSelector(getAccountLoans);
   const bills = useAppSelector(getBills);
   const dispatch = useAppDispatch();
 
@@ -18,10 +27,14 @@ export default function useLoanAccountsCategorized() {
     (async () => {
       try {
         setLoading(true);
-        const accountsList = await AccountRepository.list(
+        const cardsList = await AccountRepository.cardList(
           { config: { abortSignal: abortController.signal } },
         );
-        dispatch(setAccounts(accountsList));
+        const loansList = await AccountRepository.loanList(
+          { config: { abortSignal: abortController.signal } },
+        );
+        dispatch(setAccountCards(cardsList));
+        dispatch(setAccountLoans(loansList));
         const billsList = await BillRepository.list(
           { config: { abortSignal: abortController.signal } },
         );
@@ -39,7 +52,8 @@ export default function useLoanAccountsCategorized() {
 
   return {
     loading,
-    accounts,
+    accountCards,
+    accountLoans,
     bills,
   };
 }
