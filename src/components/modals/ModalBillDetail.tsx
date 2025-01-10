@@ -52,32 +52,32 @@ export default function ModalBillDetail(
             <tbody>
               <tr>
                 <th>{t('bills.nickname')}</th>
-                <td>{bill.accountNickname}</td>
+                <td>{bill.nickname}</td>
               </tr>
               <tr>
                 <th>{t('bills.clientNumberLabel')}</th>
-                <td>{bill.clientNumber}</td>
+                <td>{bill.clientId}</td>
               </tr>
               <tr>
                 <th>{t('bills.service')}</th>
-                <td>{bill.provider.category.name}</td>
+                <td>{bill.service}</td>
               </tr>
               <tr>
                 <th>{t('bills.company')}</th>
-                <td>{bill.provider.name}</td>
+                <td>{bill.company}</td>
               </tr>
               <tr>
                 <th>{t('bills.paymentType')}</th>
                 <td>
-                  {bill.isAutomaticallyPaid
+                  {bill.automaticPayment
                     ? t('bills.automaticPayment')
                     : t('bills.manualPayment')}
                 </td>
               </tr>
-              {bill.isAutomaticallyPaid && (
+              {bill.automaticPayment && (
                 <tr>
                   <th>{t('bills.payDate')}</th>
-                  <td>{formatDate(bill.paymentDueDetails.dueDate)}</td>
+                  <td>{formatDate(bill.payDate)}</td>
                 </tr>
               )}
             </tbody>

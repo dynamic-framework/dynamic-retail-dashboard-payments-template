@@ -73,44 +73,22 @@ export type ApiAccount = {
 
 export type ApiBill = {
   id: string;
-  provider: {
-    id: string;
-    name: string;
-    category: {
-      id: string;
-      name: string;
-      code: string;
-    };
-  };
-  client_number: string;
   account_nickname: string;
   enrollment_date: string;
+  client_number: string;
   is_automatically_paid: boolean;
   payment_due_details: {
     due_date: string;
     due_amount: number;
     payment_details: {
-      is_paid: boolean,
-      payment_date: string
+      is_paid: boolean;
     }
-  };
-  last_payment: {
-    id: string;
-    document_id: string;
-    description: string;
-    effective_date: string;
-    amount: number;
-    type: string;
-    payee: {
-      id: string;
-      name: string;
-      category: {
-        id: string;
-        name: string;
-        code: string;
-      }
-    },
-    was_automatically_paid: boolean
+  }
+  provider: {
+    name: string;
+    category: {
+      code: string;
+    }
   }
 };
 

@@ -56,46 +56,18 @@ export type Account = {
 };
 
 export type Bill = {
-  id: string;
-  provider: {
-    id: string;
-    name: string;
-    category: {
-      id: string;
-      name: string;
-      code: string;
-    };
-  };
-  clientNumber: string;
-  accountNickname: string;
-  enrollmentDate: string;
-  isAutomaticallyPaid: boolean;
-  paymentDueDetails: {
-    dueDate: string;
-    dueAmount: number;
-    payment_details: {
-      isPaid: boolean;
-      paymentDate: string;
-    };
-  };
-  lastPayment: {
-    id: string;
-    documentId: string;
-    description: string;
-    effectiveDate: string;
-    amount: number;
-    type: string;
-    payee: {
-      id: string;
-      name: string;
-      category: {
-        id: string;
-        name: string;
-        code: string;
-      };
-    };
-    was_automatically_paid: boolean;
-  };
+  date: string,
+  id: string,
+  service: string,
+  company: string,
+  nickname: string,
+  icon: string,
+  clientId: string,
+  payDate: string,
+  amount: number,
+  automaticPayment: boolean,
+  paid: boolean,
+  paidDate?: string | null,
 };
 
 export type PaymentDates = {

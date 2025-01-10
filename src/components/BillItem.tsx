@@ -27,31 +27,23 @@ export default function BillItem({ bill }: Props) {
   );
 
   const billDate = useMemo(
-    () => DateTime.fromISO(bill.paymentDueDetails.dueDate).toFormat(FORMAT_DATE),
-    [bill],
-  );
-
-  const lastPaymentDate = useMemo(
-    () => DateTime.fromISO(bill.lastPayment.effectiveDate).toFormat(FORMAT_DATE),
+    () => DateTime.fromISO(bill.payDate).toFormat(FORMAT_DATE),
     [bill],
   );
 
   const billStatus = useMemo(() => {
-    if (bill.paymentDueDetails.payment_details?.isPaid) {
-      return t('bills.totalPay', { amount: bill.paymentDueDetails.dueAmount, date: billDate });
+    if (bill.paid) {
+      return t('bills.totalPay', { amount: bill.amount, date: billDate });
     }
-    if (bill.lastPayment) {
-      return t('bills.lastPay', { amount: bill.lastPayment.amount, date: lastPaymentDate });
-    }
-    return '';
-  }, [bill, t, lastPaymentDate, billDate]);
+    return t('bills.lastPay', { amount: bill.amount, date: billDate });
+  }, [bill.paid, bill.amount, t, billDate]);
 
   const paymentInfo = useMemo(() => {
-    if (bill.isAutomaticallyPaid) {
+    if (bill.automaticPayment) {
       return t('bills.nextPay', { date: billDate });
     }
     return t('bills.noDebt');
-  }, [bill.isAutomaticallyPaid, t, billDate]);
+  }, [bill.automaticPayment, t, billDate]);
 
   return (
     <div
@@ -66,18 +58,18 @@ export default function BillItem({ bill }: Props) {
       <div className="row align-items-center w-100">
         <div className="d-flex flex-grow-1 gap-4 col-12 col-md-9">
           <IconBill
-            name={bill.provider.category.code}
+            name={bill.icon}
           />
           <div className="d-flex flex-column">
             <p className="mb-0 fw-bold">
-              {bill.accountNickname}
+              {bill.nickname}
               {' '}
               <small className="fw-normal">|</small>
               {' '}
               <small className="fw-normal text-light-emphasis">
-                {bill.provider.name}
+                {bill.company}
                 <span> · </span>
-                {t('bills.clientNumber', { number: bill.clientNumber })}
+                {t('bills.clientNumber', { number: bill.clientId })}
               </small>
             </p>
             <small className="text-light-emphasis text-balance">
@@ -95,7 +87,7 @@ export default function BillItem({ bill }: Props) {
           </div>
         </div>
         <div className="justify-content-end d-flex col-12 col-md-3 text-end small text-light-emphasis">
-          {bill.paymentDueDetails.payment_details.isPaid ? (
+          {bill.paid ? (
             <a
               className="btn btn-primary btn-sm"
               href={billPath}
