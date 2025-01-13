@@ -51,7 +51,7 @@ export default function ModalBillDelete(
       </DModal.Header>
       <DModal.Body>
         <p>
-          {t('utilities.deleteConfirmation', { bill: bill.accountNickname })}
+          {t('utilities.deleteConfirmation', { bill: bill.nickname })}
         </p>
         <div className="d-flex justify-content-end gap-4">
           <DButton
