@@ -105,7 +105,7 @@ export default function PaymentDetailsForm() {
       <div className="row">
         <div className="col-12 mb-2">
           <DInput
-            label={t('bills.clientNumber')}
+            label={t('bills.clientNumberLabel')}
             id="clientId"
             name="clientId"
             type="text"
