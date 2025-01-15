@@ -1,71 +1,72 @@
 {
-  "title": "Pagos",
+  "title": "Payments",
   "account": {
-    "credit-card": "Tarjetas de credito",
-    "loan": "Créditos",
-    "bills": "Facturas",
-    "taxes": "Impuestos",
-    "social-security": "Seguridad social"
+    "credit-card": "Credit cards",
+    "loan": "Loans",
+    "bills": "Bills",
+    "taxes": "Taxes",
+    "social-security": "Social security"
   },
   "scheduled": {
-    "title": "Programados",
-    "noPayments": "No tienes pagos programados"
+    "title": "Scheduled",
+    "noPayments": "No scheduled payments"
   },
   "button": {
-    "pay": "Pagar",
-    "addPayment": "Inscribir pagos",
-    "back": "Volver",
-    "edit": "Editar",
-    "cancel": "Cancelar",
-    "delete": "Eliminar",
-    "yesDelete": "Si, eliminar",
-    "save": "Guardar"
+    "pay": "Pay",
+    "addPayment": "Add payment",
+    "back": "Back",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "yesDelete": "Yes, delete",
+    "save": "Save"
   },
   "features": {
-    "title": "Otras funciones de pago",
-    "newPayment": "Agregar nuevo pago",
-    "recharges": "Recargas telefónica y transporte",
-    "preauthorized": "Pagos preautorizados",
-    "history": "Historial de pagos",
-    "onetime": "Pago único"
+    "title": "Other payment features",
+    "newPayment": "Add New Payment",
+    "recharges": "Phone and transport recharges",
+    "preauthorized": "Pre-authorized payments",
+    "history": "Payments history",
+    "onetime": "One-time payment"
   },
   "bills": {
-    "title": "Facturas",
-    "deleteBill": "Eliminar factura",
-    "editBill": "Editar factura",
-    "clientNumber": "Número de cliente",
-    "service": "Serivio",
-    "company": "Compañia",
+    "title": "Bills",
+    "deleteBill": "Delete bill",
+    "editBill": "Edit bill",
+    "clientNumber": "Client number {number}",
+    "clientNumberLabel": "Client number",
+    "service": "Service",
+    "company": "Company",
     "nickname": "Alias",
-    "preview": "Ver pagos previos",
-    "next": "Próximo pago el ",
-    "paid": "Último pago de",
-    "expiration": "vence el",
-    "total": "Total a pagar",
-    "noDebt": "No hay deuda",
-    "detail": "Mas detalles",
-    "billDetails": "Detalles de la factura",
-    "previousPayments": "Últimos pagos",
-    "id": "Identificador",
-    "date": "Fecha",
-    "amount": "Monto",
-    "paymentType": "Tipo de pago",
-    "manualPayment": "Pago manual",
-    "automaticPayment": "Pago automatico",
-    "payday": "Día de pago",
-    "payDate": "Fecha de pago",
-    "endMandate": "Fin del mandato",
-    "selectCompany": "Selecciona un serivicio",
-    "serviceList": "Listado de servicios"
+    "preview": "See preview payments",
+    "expiration": "expiration at",
+    "noDebt": "No outstanding dues",
+    "detail": "More details",
+    "billDetails": "Bill details",
+    "previousPayments": "Previous payments",
+    "id": "Identifier",
+    "date": "Date",
+    "amount": "Amount",
+    "paymentType": "Payment type",
+    "manualPayment": "Manual bill payment",
+    "automaticPayment": "Automatic bill payment",
+    "payday": "Payment Schedule",
+    "payDate": "Payment date",
+    "endMandate": "End of mandate",
+    "selectCompany": "Select a company",
+    "serviceList": "Services list",
+    "totalPay": "Total to pay {amount}, expiration at {date}",
+    "lastPay": "Last payment of {amount} on {date}",
+    "nextPay": "Next payment on {date}"
   },
   "formError": {
-    "onlyDigits": "Deben ser solo 20 caracteres",
-    "maxDigits": "Máximo 20 caracteres"
+    "onlyDigits": "Must be only digits",
+    "maxDigits": "Must be max 20 digits"
   },
   "utilities": {
-    "successCreated":"La factura fue creada correctamente",
-    "successSave":"La factura se guardo correctamente",
-    "successDelete":"La factura se ha eliminado de sus pagos",
-    "deleteConfirmation":"Esta seguro que desea eliminar {bill} de sus pagos?"
+    "successCreated":"The payment data has been created successfully",
+    "successSave":"The payment has been saved successfully",
+    "successDelete":"The bill has been removed from your payments",
+    "deleteConfirmation":"Are you sure you want to remove the {bill} from your payments?"
   }
 }

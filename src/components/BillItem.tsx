@@ -1,4 +1,4 @@
-import { useDPortalContext, DIcon } from '@dynamic-framework/ui-react';
+import { useDPortalContext } from '@dynamic-framework/ui-react';
 import classnames from 'classnames';
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
@@ -11,6 +11,8 @@ import {
 } from '../config/widgetConfig';
 import type { Bill } from '../services/interface';
 
+import IconBill from './IconBill';
+
 type Props = {
   bill: Bill;
 };
@@ -21,12 +23,12 @@ export default function BillItem({ bill }: Props) {
 
   const billPath = useMemo(
     () => `${SITE_URL}/${SITE_PATH.PAY_BILL}?bill_id=${bill.id}`,
-    [bill.id],
+    [bill],
   );
 
   const billDate = useMemo(
     () => DateTime.fromISO(bill.payDate).toFormat(FORMAT_DATE),
-    [bill.payDate],
+    [bill],
   );
 
   const billStatus = useMemo(() => {
@@ -55,14 +57,11 @@ export default function BillItem({ bill }: Props) {
     >
       <div className="row align-items-center w-100">
         <div className="d-flex flex-grow-1 gap-4 col-12 col-md-9">
-          <DIcon
-            hasCircle
-            icon={bill.icon}
-            size="var(--bs-ref-spacer-6)"
-            theme="info"
+          <IconBill
+            name={bill.icon}
           />
           <div className="d-flex flex-column">
-            <p className="mb-0 fw-bold text-light-emphasis">
+            <p className="mb-0 fw-bold">
               {bill.nickname}
               {' '}
               <small className="fw-normal">|</small>
@@ -70,8 +69,7 @@ export default function BillItem({ bill }: Props) {
               <small className="fw-normal text-light-emphasis">
                 {bill.company}
                 <span> · </span>
-                {t('bills.clientNumber')}
-                {bill.clientId}
+                {t('bills.clientNumber', { number: bill.clientId })}
               </small>
             </p>
             <small className="text-light-emphasis text-balance">
@@ -88,7 +86,7 @@ export default function BillItem({ bill }: Props) {
             </div>
           </div>
         </div>
-        <div className="justify-content-end d-flex col-12 col-md-3">
+        <div className="justify-content-end d-flex col-12 col-md-3 text-end small text-light-emphasis">
           {bill.paid ? (
             <a
               className="btn btn-primary btn-sm"

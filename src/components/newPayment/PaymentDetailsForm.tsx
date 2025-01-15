@@ -8,11 +8,9 @@ import {
   useDPortalContext,
 } from '@dynamic-framework/ui-react';
 import { useFormik } from 'formik';
-import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 
-import { Bill } from '../../services/interface';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   getPayDates,
@@ -20,7 +18,6 @@ import {
   getSelectedService,
 } from '../../store/selectors';
 import {
-  addBill,
   setSelectedCompany,
   setSelectedService,
 } from '../../store/slice';
@@ -42,14 +39,12 @@ export default function PaymentDetailsForm() {
     nickname: Yup.string().required().max(20, t('formError.maxDigits')),
   });
 
-  const initialValues = useMemo(
-    () => ({
-      type: 'Bill',
-      text: '',
+  const formik = useFormik({
+    enableReinitialize: true,
+    initialValues: {
       amount: 0,
       paid: false,
       paidDate: '',
-      id: 0,
       service: selectedCompany.service,
       company: selectedCompany.label,
       icon: selectedCompany.icon,
@@ -59,37 +54,9 @@ export default function PaymentDetailsForm() {
       date: '',
       automaticPayment: false,
       previousPayments: [],
-    }),
-    [selectedCompany, payDates],
-  );
-  const createNewBill = (values: Partial<Bill>): Bill => {
-    const randomId = Math.floor(Math.random() * 1000000) + Date.now();
-    return {
-      type: 'Bill',
-      date: '',
-      text: '',
-      amount: 0,
-      paid: false,
-      paidDate: '',
-      id: randomId,
-      service: selectedCompany.service,
-      company: selectedCompany.label,
-      icon: selectedCompany.icon,
-      nickname: values.nickname || '',
-      clientId: values.clientId || '',
-      payDate: values.payDate || '',
-      automaticPayment: values.automaticPayment || false,
-      previousPayments: [],
-    };
-  };
-
-  const formik = useFormik<Bill>({
-    enableReinitialize: true,
-    initialValues,
+    },
     validationSchema: NEW_BILL_SCHEMA,
-    onSubmit: (values) => {
-      const newBill = createNewBill(values);
-      dispatch(addBill(newBill));
+    onSubmit: () => {
       dispatch(setSelectedService(EMPTY_SERVICE));
       dispatch(setSelectedCompany(EMPTY_COMPANY));
       closePortal();
@@ -138,7 +105,7 @@ export default function PaymentDetailsForm() {
       <div className="row">
         <div className="col-12 mb-2">
           <DInput
-            label={t('bills.clientNumber')}
+            label={t('bills.clientNumberLabel')}
             id="clientId"
             name="clientId"
             type="text"
