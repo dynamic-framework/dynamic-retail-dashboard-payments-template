@@ -9,14 +9,15 @@ import type { Account } from '../services/interface';
 
 interface Props {
   account: Account;
+  type: string;
 }
 
-export default function AccountItem({ account }: Props) {
+export default function AccountItem({ account, type }: Props) {
   const { t } = useTranslation();
 
   const accountPath = useMemo(
-    () => (`${SITE_URL}/${SITE_PATH.PAY_DEBT}?account_id=${account.id}`),
-    [account.id],
+    () => (`${SITE_URL}/${SITE_PATH[type === 'credit-card' ? 'PAY_DEBT' : 'PAY_LOAN']}?account_id=${account.id}`),
+    [account.id, type],
   );
 
   return (

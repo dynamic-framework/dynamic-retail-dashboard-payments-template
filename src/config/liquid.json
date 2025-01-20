@@ -11,6 +11,7 @@
     "currency-decimal": ",",
     "accounts-path": "accounts",
     "pay-debt-path": "#",
+    "pay-loan-path": "#",
     "pay-bill-path": "#",
     "api-path": "https://dynamic-integration.modyo.be/mocks/online-banking",
     "one-time-path": "#",
