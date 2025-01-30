@@ -9,7 +9,7 @@ import { DateTime } from 'luxon';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { FORMAT_DATE } from '../../config/widgetConfig';
+import { VARS_FORMAT_DATE } from '../../config/widgetConfig';
 import useBillActivity from '../../services/hooks/useBillActivity';
 import { AvailablePortalPayload } from '../../services/interface';
 import BillActivityLoader from '../loaders/BillActivityLoader';
@@ -31,7 +31,7 @@ export default function ModalBillDetail(
   }, [closePortal, openPortal, bill]);
   const { format } = useFormatCurrency();
   const formatDate = useMemo(
-    () => (date: string) => DateTime.fromISO(date).toFormat(FORMAT_DATE),
+    () => (date: string) => DateTime.fromISO(date).toFormat(VARS_FORMAT_DATE),
     [],
   );
 
@@ -87,34 +87,34 @@ export default function ModalBillDetail(
           {loading && <BillActivityLoader />}
           {previousPayments && previousPayments.length > 0 && (
 
-          <div className="d-flex flex-column gap-2 container-fluid">
-            {previousPayments.map((payment) => (
-              <div
-                className="row align-items-center border rounded p-2"
-                key={payment.id}
-              >
-                <div className="col">
-                  <p className="mb-0">
-                    {payment.documentId}
-                  </p>
-                  <small>{formatDate(payment.effectiveDate)}</small>
+            <div className="d-flex flex-column gap-2 container-fluid">
+              {previousPayments.map((payment) => (
+                <div
+                  className="row align-items-center border rounded p-2"
+                  key={payment.id}
+                >
+                  <div className="col">
+                    <p className="mb-0">
+                      {payment.documentId}
+                    </p>
+                    <small>{formatDate(payment.effectiveDate)}</small>
+                  </div>
+                  <div className="col d-flex gap-4 justify-content-end">
+                    <p className="mb-0">
+                      {format(payment.amount)}
+                    </p>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://cdn.modyo.cloud/uploads/e3d9d615-25e9-4d92-a3b0-b7ff063a9f77/original/voucher.pdf"
+                      download="voucher.pdf"
+                    >
+                      <i className="bi bi-download" />
+                    </a>
+                  </div>
                 </div>
-                <div className="col d-flex gap-4 justify-content-end">
-                  <p className="mb-0">
-                    {format(payment.amount)}
-                  </p>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://cdn.modyo.cloud/uploads/e3d9d615-25e9-4d92-a3b0-b7ff063a9f77/original/voucher.pdf"
-                    download="voucher.pdf"
-                  >
-                    <i className="bi bi-download" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
           )}
         </div>
       </DModal.Body>

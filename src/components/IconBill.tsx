@@ -1,9 +1,5 @@
 import { DIcon } from '@dynamic-framework/ui-react';
 
-type Props = {
-  name: string;
-};
-
 const icons = {
   WATER: 'water',
   GAS: 'fire',
@@ -13,11 +9,17 @@ const icons = {
   INTERNET: 'router',
 } as const;
 
+type IconName = keyof typeof icons;
+
+type Props = {
+  name: IconName;
+};
+
 export default function IconBill({ name }: Props) {
   return (
     <DIcon
       hasCircle
-      icon={icons[name] as keyof typeof icons}
+      icon={icons[name]}
       size="var(--bs-ref-spacer-6)"
       theme="info"
     />

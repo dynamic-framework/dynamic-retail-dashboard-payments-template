@@ -63,6 +63,21 @@ const slice = createSlice({
     setSelectedCompany(state, action: PayloadAction<Company>) {
       state.selectedCompany = action.payload;
     },
+    resetSelectedCompany(state) {
+      state.selectedCompany = {
+        service: '',
+        icon: '',
+        value: '',
+        label: '',
+      };
+    },
+    resetSelectedService(state) {
+      state.selectedService = {
+        label: '',
+        value: '',
+        companies: [],
+      };
+    },
     setPayDates(state, action: PayloadAction<PayDateOption[]>) {
       state.payDates = action.payload;
     },
@@ -85,5 +100,7 @@ export const {
   setScheduledPayments,
   setSelectedService,
   setSelectedCompany,
+  resetSelectedCompany,
+  resetSelectedService,
 } = slice.actions;
 export default slice.reducer;

@@ -18,13 +18,11 @@ import {
   getSelectedService,
 } from '../../store/selectors';
 import {
-  setSelectedCompany,
-  setSelectedService,
+  resetSelectedCompany,
+  resetSelectedService,
 } from '../../store/slice';
 
-import { EMPTY_SERVICE, EMPTY_COMPANY } from './EmptyStates';
-
-export default function PaymentDetailsForm() {
+export function PaymentDetailsForm() {
   const { t } = useTranslation();
   const { toast } = useDToast();
   const dispatch = useAppDispatch();
@@ -57,8 +55,8 @@ export default function PaymentDetailsForm() {
     },
     validationSchema: NEW_BILL_SCHEMA,
     onSubmit: () => {
-      dispatch(setSelectedService(EMPTY_SERVICE));
-      dispatch(setSelectedCompany(EMPTY_COMPANY));
+      dispatch(resetSelectedCompany());
+      dispatch(resetSelectedService());
       closePortal();
       toast({
         title: t('utilities.successCreated'),
@@ -78,9 +76,9 @@ export default function PaymentDetailsForm() {
           className="px-0 link-primary bg-transparent d-flex align-items-center gap-2 border-0"
           onClick={() => {
             if (!selectedService.label) {
-              dispatch(setSelectedService(EMPTY_SERVICE));
+              dispatch(resetSelectedService());
             }
-            dispatch(setSelectedCompany(EMPTY_COMPANY));
+            dispatch(resetSelectedCompany());
           }}
         >
           <DIcon

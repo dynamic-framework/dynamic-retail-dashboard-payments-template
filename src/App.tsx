@@ -1,12 +1,21 @@
+import { useDContext } from '@dynamic-framework/ui-react';
+import { useEffect } from 'react';
+
 import CategoryList from './components/CategoryList';
 import DashboardFeatures from './components/DashboardFeatures';
 import CategoryLoader from './components/loaders/CategoryLoader';
+import { CONTEXT_CONFIG } from './config/widgetConfig';
 import useLoanAccountsCategorized from './services/hooks/useLoanAccountsCategorized';
 import useLocalData from './services/hooks/useLocalData';
 
 export default function App() {
   const { loading } = useLoanAccountsCategorized();
   useLocalData();
+  const { setContext } = useDContext();
+
+  useEffect(() => {
+    setContext(CONTEXT_CONFIG);
+  }, [setContext]);
 
   return (
     <div className="container">

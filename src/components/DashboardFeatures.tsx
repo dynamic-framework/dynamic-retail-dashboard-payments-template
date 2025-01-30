@@ -5,7 +5,7 @@ import {
 } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
-import { SITE_PATH, SITE_URL } from '../config/widgetConfig';
+import { VARS_PATH, SITE_URL } from '../config/widgetConfig';
 
 export default function DashboardFeatures() {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ export default function DashboardFeatures() {
           </li>
           <li className="mb-4">
             <a
-              href={`${SITE_URL}/${SITE_PATH.RECHARGES}`}
+              href={`${SITE_URL}/${VARS_PATH.RECHARGES}`}
               className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
             >
               <DIcon
@@ -47,7 +47,7 @@ export default function DashboardFeatures() {
           </li>
           <li className="mb-4">
             <a
-              href={`${SITE_URL}/${SITE_PATH.PREAUTORIZED}`}
+              href={`${SITE_URL}/${VARS_PATH.PREAUTORIZED}`}
               className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
             >
               <DIcon
@@ -61,7 +61,7 @@ export default function DashboardFeatures() {
           </li>
           <li className="mb-4">
             <a
-              href={`${SITE_URL}/${SITE_PATH.PAYMENTS_HISTORY}`}
+              href={`${SITE_URL}/${VARS_PATH.PAYMENTS_HISTORY}`}
               className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
             >
               <DIcon
@@ -75,7 +75,7 @@ export default function DashboardFeatures() {
           </li>
           <li className="mb-4">
             <a
-              href={`${SITE_URL}/${SITE_PATH.ONE_TIME_PAYMENT}`}
+              href={`${SITE_URL}/${VARS_PATH.ONE_TIME_PAYMENT}`}
               className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
             >
               <DIcon

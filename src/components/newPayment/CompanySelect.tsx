@@ -3,11 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getSelectedService } from '../../store/selectors';
-import { setSelectedCompany, setSelectedService } from '../../store/slice';
+import { resetSelectedService, setSelectedCompany } from '../../store/slice';
 
-import { EMPTY_SERVICE } from './EmptyStates';
-
-export default function CompanySelect() {
+export function CompanySelect() {
   const { t } = useTranslation();
   const selectedService = useAppSelector(getSelectedService);
   const dispatch = useAppDispatch();
@@ -18,7 +16,7 @@ export default function CompanySelect() {
         <button
           type="button"
           className="px-0 link-primary bg-transparent d-flex align-items-center gap-2 border-0"
-          onClick={() => dispatch(setSelectedService(EMPTY_SERVICE))}
+          onClick={() => dispatch(resetSelectedService())}
         >
           <DIcon
             icon="arrow-left"
