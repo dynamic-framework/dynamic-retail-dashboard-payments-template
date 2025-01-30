@@ -7,16 +7,16 @@ import { PayDateOption } from '../interface';
 
 const payDates: PayDateOption[] = [
   {
-    label: 'Each first of the month',
-    value: '01',
+    label: 'On the first day of every month',
+    value: 'DAY_1',
   },
   {
-    label: 'Each month on 5th',
-    value: '05',
+    label: 'On the 5th day of every month',
+    value: 'DAY_5',
   },
   {
-    label: 'Each month on 15th',
-    value: '15',
+    label: 'On the 15th day of every month',
+    value: 'DAY_15',
   },
 ];
 
