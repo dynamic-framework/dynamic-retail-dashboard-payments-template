@@ -1,14 +1,5 @@
-import type { ApiBill } from '../api-interface';
+import { ApiBillIcon, type ApiBill } from '../api-interface';
 import { Bill } from '../interface';
-
-const iconMap: Record<string, Bill['icon']> = {
-  WATER: 'WATER',
-  GAS: 'GAS',
-  MOBILE: 'MOBILE',
-  ELECTRIC: 'ELECTRIC',
-  CABLE: 'CABLE',
-  INTERNET: 'INTERNET',
-};
 
 export default function billMapper(apiBill: ApiBill): Bill {
   return {
@@ -17,7 +8,7 @@ export default function billMapper(apiBill: ApiBill): Bill {
     service: apiBill.provider.name,
     company: apiBill.provider.name,
     nickname: apiBill.account_nickname,
-    icon: iconMap[apiBill.provider.category.code] || 'WATER',
+    icon: ApiBillIcon[apiBill.provider.category.code.toLowerCase() as keyof typeof ApiBillIcon],
     clientId: apiBill.client_number,
     payDate: apiBill.payment_due_details.due_date,
     amount: apiBill.payment_due_details.due_amount,

@@ -124,3 +124,12 @@ export const ApiCompanyIcon = {
   wifi: 'wifi',
   tv: 'tv',
 };
+
+export const ApiBillIcon = {
+  electric: 'lightning',
+  water: 'droplet',
+  gas: 'fire',
+  mobile: 'phone',
+  internet: 'wifi',
+  cable: 'tv',
+};

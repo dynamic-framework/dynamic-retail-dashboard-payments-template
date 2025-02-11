@@ -67,7 +67,7 @@ export type Bill = {
   automaticPayment: boolean,
   paid: boolean,
   paidDate?: string | null,
-  icon: 'WATER' | 'GAS' | 'MOBILE' | 'ELECTRIC' | 'CABLE' | 'INTERNET';
+  icon: string;
 };
 
 export type PaymentDates = {
