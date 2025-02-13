@@ -1,4 +1,4 @@
-import type { ApiBill } from '../api-interface';
+import { ApiBillIcon, type ApiBill } from '../api-interface';
 import { Bill } from '../interface';
 
 export default function billMapper(apiBill: ApiBill): Bill {
@@ -8,7 +8,7 @@ export default function billMapper(apiBill: ApiBill): Bill {
     service: apiBill.provider.name,
     company: apiBill.provider.name,
     nickname: apiBill.account_nickname,
-    icon: apiBill.provider.category.code,
+    icon: ApiBillIcon[apiBill.provider.category.code.toLowerCase() as keyof typeof ApiBillIcon],
     clientId: apiBill.client_number,
     payDate: apiBill.payment_due_details.due_date,
     amount: apiBill.payment_due_details.due_amount,

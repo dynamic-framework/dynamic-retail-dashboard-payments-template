@@ -101,3 +101,35 @@ export type ApiBillActivity = {
   type: string;
   was_automatically_paid: boolean
 };
+
+export type ApiService = {
+  id: string;
+  name: string;
+  code: string;
+  icon: string;
+  list: ApiCompany[];
+};
+
+export type ApiCompany = {
+  id: string;
+  name: string;
+  icon: string;
+};
+
+export const ApiCompanyIcon = {
+  lightbulb: 'lightning',
+  water: 'droplet',
+  fire: 'fire',
+  'telephone-fill': 'phone',
+  wifi: 'wifi',
+  tv: 'tv',
+};
+
+export const ApiBillIcon = {
+  electric: 'lightning',
+  water: 'droplet',
+  gas: 'fire',
+  mobile: 'phone',
+  internet: 'wifi',
+  cable: 'tv',
+};

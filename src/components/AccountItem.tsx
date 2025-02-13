@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SITE_PATH, SITE_URL } from '../config/widgetConfig';
+import { VARS_PATH, SITE_URL } from '../config/widgetConfig';
 import { AccountTypeConfig, Icon } from '../services/config';
 import type { Account } from '../services/interface';
 
@@ -16,7 +16,7 @@ export default function AccountItem({ account, type }: Props) {
   const { t } = useTranslation();
 
   const accountPath = useMemo(
-    () => (`${SITE_URL}/${SITE_PATH[type === 'credit-card' ? 'PAY_DEBT' : 'PAY_LOAN']}?account_id=${account.id}`),
+    () => (`${SITE_URL}/${VARS_PATH[type === 'credit-card' ? 'PAY_DEBT' : 'PAY_LOAN']}?account_id=${account.id}`),
     [account.id, type],
   );
 

@@ -61,13 +61,13 @@ export type Bill = {
   service: string,
   company: string,
   nickname: string,
-  icon: string,
   clientId: string,
   payDate: string,
   amount: number,
   automaticPayment: boolean,
   paid: boolean,
   paidDate?: string | null,
+  icon: string;
 };
 
 export type PaymentDates = {

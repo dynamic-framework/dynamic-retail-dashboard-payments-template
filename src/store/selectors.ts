@@ -1,7 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { EMPTY_COMPANY } from '../components/newPayment/EmptyStates';
-
 import { RootState } from './store';
 
 const getState = (state: RootState) => state.widget;
@@ -48,5 +46,5 @@ export const getSelectedService = createSelector(
 
 export const getSelectedCompany = createSelector(
   getState,
-  (widget) => widget.selectedCompany || EMPTY_COMPANY,
+  (widget) => widget.selectedCompany,
 );

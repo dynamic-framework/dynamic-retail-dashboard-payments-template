@@ -1,13 +1,13 @@
-import { useDPortalContext } from '@dynamic-framework/ui-react';
+import { useDPortalContext, useFormatCurrency } from '@dynamic-framework/ui-react';
 import classnames from 'classnames';
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
-  SITE_PATH,
+  VARS_PATH,
   SITE_URL,
-  FORMAT_DATE,
+  VARS_FORMAT_DATE,
 } from '../config/widgetConfig';
 import type { Bill } from '../services/interface';
 
@@ -20,23 +20,24 @@ type Props = {
 export default function BillItem({ bill }: Props) {
   const { t } = useTranslation();
   const { openPortal } = useDPortalContext();
+  const { format } = useFormatCurrency();
 
   const billPath = useMemo(
-    () => `${SITE_URL}/${SITE_PATH.PAY_BILL}?bill_id=${bill.id}`,
+    () => `${SITE_URL}/${VARS_PATH.PAY_BILL}?bill_id=${bill.id}`,
     [bill],
   );
 
   const billDate = useMemo(
-    () => DateTime.fromISO(bill.payDate).toFormat(FORMAT_DATE),
+    () => DateTime.fromISO(bill.payDate).toFormat(VARS_FORMAT_DATE),
     [bill],
   );
 
   const billStatus = useMemo(() => {
     if (bill.paid) {
-      return t('bills.totalPay', { amount: bill.amount, date: billDate });
+      return t('bills.totalPay', { amount: format(bill.amount), date: billDate });
     }
-    return t('bills.lastPay', { amount: bill.amount, date: billDate });
-  }, [bill.paid, bill.amount, t, billDate]);
+    return t('bills.lastPay', { amount: format(bill.amount), date: billDate });
+  }, [bill.paid, bill.amount, t, format, billDate]);
 
   const paymentInfo = useMemo(() => {
     if (bill.automaticPayment) {

@@ -1,6 +1,8 @@
 import { DQuickActionButton, DSelect } from '@dynamic-framework/ui-react';
 import {
-  useCallback, useEffect, useState,
+  useCallback,
+  useEffect,
+  useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -9,7 +11,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getServices } from '../../store/selectors';
 import { setSelectedCompany, setSelectedService } from '../../store/slice';
 
-export default function ServiceSelect() {
+export function ServiceSelect() {
   const { t } = useTranslation();
   const services = useAppSelector(getServices);
   const [allCompanies, setAllCompanies] = useState<Company[]>([]);
@@ -56,8 +58,8 @@ export default function ServiceSelect() {
                 actionIcon="chevron-right"
                 line1={service.label}
                 line2=""
-                onClick={() => { dispatch(setSelectedService(service)); }}
-                representativeIcon={service.value}
+                onClick={() => dispatch(setSelectedService(service))}
+                representativeIcon={service.companies[0].icon}
                 representativeIconTheme="info"
               />
             </div>
