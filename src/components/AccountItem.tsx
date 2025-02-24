@@ -38,7 +38,7 @@ export default function AccountItem({ account, type }: Props) {
           theme={AccountTypeConfig[account.group as Icon].theme}
         />
         <div className="d-flex flex-column flex-grow-1">
-          <p className="mb-0 fw-bold">{account.accountHolderName}</p>
+          <p className="mb-0 fw-bold">{account.accountName}</p>
           <small className="text-light-emphasis">{account.group === 'CREDIT_CARD' ? account.maskedNumber : account.number}</small>
         </div>
         <DButton
