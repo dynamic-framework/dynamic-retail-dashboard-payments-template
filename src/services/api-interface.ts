@@ -117,19 +117,19 @@ export type ApiCompany = {
 };
 
 export const ApiCompanyIcon = {
-  lightbulb: 'lightning',
-  water: 'droplet',
-  fire: 'fire',
-  'telephone-fill': 'phone',
-  wifi: 'wifi',
-  tv: 'tv',
+  lightbulb: 'Lightbulb',
+  water: 'Droplet',
+  fire: 'Flame',
+  'telephone-fill': 'Phone',
+  wifi: 'Wifi',
+  tv: 'Tv',
 };
 
 export const ApiBillIcon = {
-  electric: 'lightning',
-  water: 'droplet',
-  gas: 'fire',
-  mobile: 'phone',
-  internet: 'wifi',
-  cable: 'tv',
+  electric: 'Lightbulb',
+  water: 'Droplet',
+  gas: 'Flame',
+  mobile: 'Phone',
+  internet: 'Wifi',
+  cable: 'Tv',
 };

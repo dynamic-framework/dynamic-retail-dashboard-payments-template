@@ -1,7 +1,8 @@
 import {
   useDPortalContext,
   DIcon,
-  DCard,
+  DButton,
+  DBox,
 } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
@@ -12,83 +13,72 @@ export default function DashboardFeatures() {
   const { openPortal } = useDPortalContext();
 
   return (
-    <DCard>
-      <DCard.Body>
-        <h6 className="fw-bold mb-4">{t('features.title')}</h6>
-        <ul className="list-unstyled">
-          <li className="mb-4">
-            <button
-              className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
-              type="button"
-              onClick={() => openPortal('modalNew', {})}
-            >
-              <DIcon
-                hasCircle
-                icon="plus"
-                size="var(--bs-ref-spacer-4)"
-                theme="primary"
-              />
-              {t('features.newPayment')}
-            </button>
-          </li>
-          <li className="mb-4">
-            <a
-              href={`${SITE_URL}/${VARS_PATH.RECHARGES}`}
-              className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
-            >
-              <DIcon
-                hasCircle
-                icon="phone"
-                size="var(--bs-ref-spacer-4)"
-                theme="primary"
-              />
-              {t('features.recharges')}
-            </a>
-          </li>
-          <li className="mb-4">
-            <a
-              href={`${SITE_URL}/${VARS_PATH.PREAUTORIZED}`}
-              className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
-            >
-              <DIcon
-                hasCircle
-                icon="hand-thumbs-up"
-                size="var(--bs-ref-spacer-4)"
-                theme="primary"
-              />
-              {t('features.preauthorized')}
-            </a>
-          </li>
-          <li className="mb-4">
-            <a
-              href={`${SITE_URL}/${VARS_PATH.PAYMENTS_HISTORY}`}
-              className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
-            >
-              <DIcon
-                hasCircle
-                icon="clock"
-                size="var(--bs-ref-spacer-4)"
-                theme="primary"
-              />
-              {t('features.history')}
-            </a>
-          </li>
-          <li className="mb-4">
-            <a
-              href={`${SITE_URL}/${VARS_PATH.ONE_TIME_PAYMENT}`}
-              className="gap-2 btn btn-link-primary text-decoration-none py-0 ps-0"
-            >
-              <DIcon
-                hasCircle
-                icon="receipt"
-                size="var(--bs-ref-spacer-4)"
-                theme="primary"
-              />
-              {t('features.onetime')}
-            </a>
-          </li>
-        </ul>
-      </DCard.Body>
-    </DCard>
+    <DBox>
+      <h5 className="fw-semibold mb-4">{t('features.title')}</h5>
+      <ul className="list-unstyled">
+        <li>
+          <DButton
+            iconStart="Plus"
+            className="w-100 justify-content-start"
+            color="primary"
+            variant="link"
+            text={t('features.newPayment')}
+            onClick={() => openPortal('modalNew', {})}
+          />
+        </li>
+        <li>
+          <a
+            href={`${SITE_URL}/${VARS_PATH.RECHARGES}`}
+            className="btn btn-link-primary w-100 justify-content-start"
+          >
+            <DIcon
+              icon="Phone"
+              size="1rem"
+              color="primary"
+            />
+            {t('features.recharges')}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`${SITE_URL}/${VARS_PATH.PREAUTORIZED}`}
+            className="btn btn-link-primary w-100 justify-content-start"
+          >
+            <DIcon
+              icon="ThumbsUp"
+              size="1rem"
+              color="primary"
+            />
+            {t('features.preauthorized')}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`${SITE_URL}/${VARS_PATH.PAYMENTS_HISTORY}`}
+            className="btn btn-link-primary w-100 justify-content-start"
+          >
+            <DIcon
+              icon="Clock"
+              size="1rem"
+              color="primary"
+            />
+            {t('features.history')}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`${SITE_URL}/${VARS_PATH.ONE_TIME_PAYMENT}`}
+            className="btn btn-link-primary w-100 justify-content-start"
+          >
+            <DIcon
+              icon="Receipt"
+              size="1rem"
+              color="primary"
+            />
+            {t('features.onetime')}
+          </a>
+        </li>
+      </ul>
+    </DBox>
   );
 }

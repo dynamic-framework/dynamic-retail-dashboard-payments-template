@@ -4,6 +4,7 @@ import {
   useDPortalContext,
   PortalProps,
   useFormatCurrency,
+  DIcon,
 } from '@dynamic-framework/ui-react';
 import { DateTime } from 'luxon';
 import { useCallback, useMemo } from 'react';
@@ -97,10 +98,10 @@ export default function ModalBillDetail(
                     <p className="mb-0">
                       {payment.documentId}
                     </p>
-                    <small>{formatDate(payment.effectiveDate)}</small>
+                    <small className="text-muted">{formatDate(payment.effectiveDate)}</small>
                   </div>
                   <div className="col d-flex gap-4 justify-content-end">
-                    <p className="mb-0">
+                    <p className="mb-0 fw-semibold">
                       {format(payment.amount)}
                     </p>
                     <a
@@ -110,6 +111,13 @@ export default function ModalBillDetail(
                       download="voucher.pdf"
                     >
                       <i className="bi bi-download" />
+                      <DIcon
+                        size="0.75rem"
+                        icon="Download"
+                        hasCircle
+                        color="primary"
+                        variant="link"
+                      />
                     </a>
                   </div>
                 </div>

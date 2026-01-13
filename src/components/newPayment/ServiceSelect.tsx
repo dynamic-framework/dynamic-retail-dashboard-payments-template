@@ -1,4 +1,4 @@
-import { DQuickActionButton, DSelect } from '@dynamic-framework/ui-react';
+import { DButton, DSelect } from '@dynamic-framework/ui-react';
 import {
   useCallback,
   useEffect,
@@ -54,13 +54,10 @@ export function ServiceSelect() {
             key={service.value}
           >
             <div className="mb-3">
-              <DQuickActionButton
-                actionIcon="chevron-right"
-                line1={service.label}
-                line2=""
+              <DButton
                 onClick={() => dispatch(setSelectedService(service))}
-                representativeIcon={service.companies[0].icon}
-                representativeIconTheme="info"
+                text={service.label}
+                iconEnd="ChevronRight"
               />
             </div>
           </div>

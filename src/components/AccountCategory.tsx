@@ -16,11 +16,11 @@ export default function AccountCategory({ type, accounts }: Props) {
   return (
     <DCollapse
       className="shadow-sm rounded"
-      defaultCollapsed={!!accounts.length}
+      defaultCollapsed={false}
       Component={(
-        <h2 className="fs-6 py-2 fw-bold text-truncate">
+        <h5 className="text-truncate fw-semibold">
           {t(`account.${type}`)}
-        </h2>
+        </h5>
       )}
     >
       <div className="d-flex gap-4 flex-column">

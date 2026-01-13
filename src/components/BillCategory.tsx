@@ -13,11 +13,11 @@ export default function BillCategory() {
   return (
     <DCollapse
       className="shadow-sm rounded"
-      defaultCollapsed={!!bills.length}
+      defaultCollapsed={false}
       Component={(
-        <h2 className="fs-6 py-2 fw-bold text-truncate">
+        <h5 className="text-truncate fw-semibold">
           {t('bills.title')}
-        </h2>
+        </h5>
       )}
     >
       <div className="d-flex flex-column gap-4">

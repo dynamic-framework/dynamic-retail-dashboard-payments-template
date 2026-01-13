@@ -12,7 +12,7 @@ export const AccountTypeConfig = {
   CREDIT_CARD: {
     name: 'Credit Cards',
     theme: 'indigo',
-    icon: 'credit-card',
+    icon: 'CreditCard',
     accounts: [],
     id: 'credit-card',
     type: 'credit-card',
@@ -20,7 +20,7 @@ export const AccountTypeConfig = {
   LOAN: {
     name: 'Loans',
     theme: 'yellow',
-    icon: 'cash-stack',
+    icon: 'Coins',
     accounts: [],
     id: 'loan',
     type: 'loan',

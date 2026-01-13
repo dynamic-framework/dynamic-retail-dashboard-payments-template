@@ -9,8 +9,8 @@ export default function IconBill({ name }: Props) {
     <DIcon
       hasCircle
       icon={name}
-      size="var(--bs-ref-spacer-6)"
-      theme="info"
+      size="1rem"
+      color="info"
     />
   );
 }

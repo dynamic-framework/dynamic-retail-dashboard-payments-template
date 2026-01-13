@@ -34,14 +34,15 @@ export default function AccountItem({ account, type }: Props) {
         <DIcon
           hasCircle
           icon={AccountTypeConfig[account.group as Icon].icon}
-          size="var(--bs-ref-spacer-6)"
-          theme={AccountTypeConfig[account.group as Icon].theme}
+          size="1rem"
+          color={AccountTypeConfig[account.group as Icon].theme}
         />
         <div className="d-flex flex-column flex-grow-1">
           <p className="mb-0 fw-bold">{account.accountName}</p>
           <small className="text-light-emphasis">{account.group === 'CREDIT_CARD' ? account.maskedNumber : account.number}</small>
         </div>
         <DButton
+          variant="outline"
           text={t('button.pay')}
           size="sm"
         />

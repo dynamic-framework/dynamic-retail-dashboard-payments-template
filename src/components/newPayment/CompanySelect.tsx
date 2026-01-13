@@ -1,4 +1,4 @@
-import { DIcon, DQuickActionButton } from '@dynamic-framework/ui-react';
+import { DButton, DIcon } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -32,13 +32,18 @@ export function CompanySelect() {
             key={company.value}
           >
             <div className="mb-3">
-              <DQuickActionButton
+              {/* <DQuickActionButton
                 actionIcon="chevron-right"
                 line1={company.label}
                 line2=""
                 onClick={() => dispatch(setSelectedCompany(company))}
                 representativeIcon={company.icon}
                 representativeIconTheme="info"
+              /> */}
+              <DButton
+                iconEnd={company.icon}
+                onClick={() => dispatch(setSelectedCompany(company))}
+                text={company.label}
               />
             </div>
           </div>

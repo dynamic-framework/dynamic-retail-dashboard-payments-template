@@ -57,7 +57,7 @@ export default function BillItem({ bill }: Props) {
       )}
     >
       <div className="row align-items-center w-100">
-        <div className="d-flex flex-grow-1 gap-4 col-12 col-md-9">
+        <div className="d-flex flex-grow-1 align-items-start gap-4 col-12 col-md-9">
           <IconBill
             name={bill.icon}
           />
@@ -90,7 +90,7 @@ export default function BillItem({ bill }: Props) {
         <div className="justify-content-end d-flex col-12 col-md-3 text-end small text-light-emphasis">
           {bill.paid ? (
             <a
-              className="btn btn-primary btn-sm"
+              className="btn btn-outline-primary btn-sm"
               href={billPath}
             >
               {t('button.pay')}

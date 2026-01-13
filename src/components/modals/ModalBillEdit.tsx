@@ -107,14 +107,15 @@ export default function ModalBillEdit(
         )}
         <div className="d-flex mt-4 justify-content-end gap-4">
           <DButton
-            iconStart="trash"
+            iconStart="Trash"
             onClick={openDeleteModal}
             text={t('button.delete')}
-            theme="danger"
+            color="danger"
             variant="outline"
             type="button"
           />
           <DButton
+            color="primary"
             onClick={saveModal}
             text={t('button.save')}
             type="button"
