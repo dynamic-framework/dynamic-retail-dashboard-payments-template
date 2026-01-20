@@ -1,4 +1,4 @@
-import { DButton, DIcon } from '@dynamic-framework/ui-react';
+import { DIcon } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -19,33 +19,37 @@ export function CompanySelect() {
           onClick={() => dispatch(resetSelectedService())}
         >
           <DIcon
-            icon="arrow-left"
+            icon="ArrowLeft"
             size="var(--bs-ref-spacer-6)"
           />
           {t('button.back')}
         </button>
       </div>
-      <div className="row">
+      <div className="row pb-3">
         {selectedService?.companies.map((company) => (
           <div
             className="col-6"
             key={company.value}
           >
-            <div className="mb-3">
-              {/* <DQuickActionButton
-                actionIcon="chevron-right"
-                line1={company.label}
-                line2=""
-                onClick={() => dispatch(setSelectedCompany(company))}
-                representativeIcon={company.icon}
-                representativeIconTheme="info"
-              /> */}
-              <DButton
-                iconEnd={company.icon}
-                onClick={() => dispatch(setSelectedCompany(company))}
-                text={company.label}
+            <button
+              className="d-flex flex-column align-items-center justify-content-center p-4 bg-white border rounded text-decoration-none w-100 h-100"
+              onClick={() => dispatch(setSelectedCompany(company))}
+              style={{
+                cursor: 'pointer',
+              }}
+              type="button"
+            >
+              <DIcon
+                className="mb-3 text-primary"
+                color="info"
+                hasCircle
+                icon={company.icon}
+                size="2rem"
               />
-            </div>
+              <h6 className="mb-1 text-center">
+                {company.label}
+              </h6>
+            </button>
           </div>
         ))}
       </div>

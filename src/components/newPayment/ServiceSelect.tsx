@@ -1,4 +1,4 @@
-import { DButton, DSelect } from '@dynamic-framework/ui-react';
+import { DIcon, DSelect } from '@dynamic-framework/ui-react';
 import {
   useCallback,
   useEffect,
@@ -54,11 +54,25 @@ export function ServiceSelect() {
             key={service.value}
           >
             <div className="mb-3">
-              <DButton
+              <button
+                className="d-flex flex-column align-items-center justify-content-center p-4 bg-white border rounded text-decoration-none w-100 h-100 hover:shadow-sm transition-all"
                 onClick={() => dispatch(setSelectedService(service))}
-                text={service.label}
-                iconEnd="ChevronRight"
-              />
+                style={{
+                  cursor: 'pointer',
+                }}
+                type="button"
+              >
+                <DIcon
+                  className="mb-3"
+                  color="info"
+                  hasCircle
+                  icon={service.companies[0].icon}
+                  size="2rem"
+                />
+                <h6 className="mb-1 text-center">
+                  {service.label}
+                </h6>
+              </button>
             </div>
           </div>
         ))}

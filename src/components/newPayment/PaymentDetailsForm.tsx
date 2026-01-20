@@ -60,8 +60,7 @@ export function PaymentDetailsForm() {
       closePortal();
       toast({
         title: t('utilities.successCreated'),
-        theme: 'success',
-        soft: true,
+        color: 'success',
       }, {
         duration: 3000,
       });
@@ -82,17 +81,17 @@ export function PaymentDetailsForm() {
           }}
         >
           <DIcon
-            icon="arrow-left"
+            icon="ArrowLeft"
             size="var(--bs-ref-spacer-6)"
           />
           {t('button.back')}
         </button>
-        <div className="d-flex align-items-center gap-3 border border-light p-4 rounded w-100">
+        <div className="d-flex align-items-center gap-3 border p-4 rounded w-100">
           <DIcon
             hasCircle
             icon={selectedCompany.icon}
             size="var(--bs-ref-spacer-7)"
-            theme="info"
+            color="info"
           />
           <div>
             <h6 className="text-gray-600 fw-normal mb-2">{selectedCompany.service}</h6>
