@@ -40,8 +40,7 @@ export default function ModalBillEdit(
     toast(
       {
         title: t('utilities.successSave'),
-        theme: 'success',
-        soft: true,
+        color: 'success',
       },
       {
         duration: 3000,

@@ -29,8 +29,7 @@ export default function ModalBillDelete(
     toast(
       {
         title: t('utilities.successDelete'),
-        theme: 'success',
-        soft: true,
+        color: 'success',
       },
       {
         duration: 3000,
@@ -56,13 +55,13 @@ export default function ModalBillDelete(
         <div className="d-flex justify-content-end gap-4">
           <DButton
             text={t('button.cancel')}
-            theme="dark"
+            color="dark"
             variant="link"
             onClick={handleEdit}
           />
           <DButton
             text={t('button.yesDelete')}
-            theme="primary"
+            color="primary"
             onClick={deleteBill}
           />
         </div>

@@ -130,7 +130,7 @@ export default function ModalBillDetail(
         <DButton
           onClick={handleEdit}
           text={t('button.edit')}
-          theme="primary"
+          color="primary"
           type="button"
         />
       </DModal.Footer>
