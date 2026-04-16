@@ -15,7 +15,7 @@ import ModalNewPayment from './components/modals/ModalNewPayment';
 import { AvailablePortalPayload } from './services/interface';
 import store from './store/store';
 
-import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
+//  import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
 import './styles/base.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('dashboardPayments') as Element);

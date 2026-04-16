@@ -1,4 +1,6 @@
 import { DCollapse, DIcon } from '@dynamic-framework/ui-react';
+import classNames from 'classnames';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AccountTypeConfig, Icon } from '../services/config';
@@ -14,12 +16,18 @@ interface Props {
 export default function AccountCategory({ type, accounts }: Props) {
   const { t } = useTranslation();
 
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <DCollapse
-      className="shadow-sm rounded"
+      className={classNames(
+        'rounded-2 category-collapse fade-in',
+        collapsed ? 'collapsed' : 'expanded',
+      )}
       defaultCollapsed={false}
       iconOpen="Plus"
       iconClose="Minus"
+      onChange={setCollapsed}
       Component={(
         <div className="d-flex gap-2 align-items-center category-header">
           <DIcon
