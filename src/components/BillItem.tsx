@@ -62,7 +62,7 @@ export default function BillItem({ bill }: Props) {
             name={bill.icon}
           />
           <div className="d-flex flex-column">
-            <p className="mb-0 fw-bold">
+            <p className="mb-0 fw-semibold">
               {bill.nickname}
               {' '}
               <small className="fw-normal">|</small>

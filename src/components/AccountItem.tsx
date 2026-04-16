@@ -1,10 +1,9 @@
-import { DButton, DIcon } from '@dynamic-framework/ui-react';
+import { DButton } from '@dynamic-framework/ui-react';
 import classnames from 'classnames';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { VARS_PATH, SITE_URL } from '../config/widgetConfig';
-import { AccountTypeConfig, Icon } from '../services/config';
 import type { Account } from '../services/interface';
 
 type Props = {
@@ -31,14 +30,8 @@ export default function AccountItem({ account, type }: Props) {
       )}
     >
       <div className="d-flex gap-4 align-items-center w-100">
-        <DIcon
-          hasCircle
-          icon={AccountTypeConfig[account.group as Icon].icon}
-          size="1rem"
-          color={AccountTypeConfig[account.group as Icon].theme}
-        />
         <div className="d-flex flex-column flex-grow-1">
-          <p className="mb-0 fw-bold">{account.accountName}</p>
+          <p className="mb-0 fw-semibold">{account.accountName}</p>
           <small className="text-light-emphasis">{account.group === 'CREDIT_CARD' ? account.maskedNumber : account.number}</small>
         </div>
         <DButton

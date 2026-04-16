@@ -1,6 +1,7 @@
-import { DCollapse } from '@dynamic-framework/ui-react';
+import { DCollapse, DIcon } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
+import { AccountTypeConfig, Icon } from '../services/config';
 import { Account } from '../services/interface';
 
 import AccountItem from './AccountItem';
@@ -17,10 +18,17 @@ export default function AccountCategory({ type, accounts }: Props) {
     <DCollapse
       className="shadow-sm rounded"
       defaultCollapsed={false}
+      iconOpen="Plus"
+      iconClose="Minus"
       Component={(
-        <h5 className="text-truncate fw-semibold">
-          {t(`account.${type}`)}
-        </h5>
+        <div className="d-flex gap-2 align-items-center category-header">
+          <DIcon
+            hasCircle
+            color="primary"
+            icon={accounts.length > 0 ? AccountTypeConfig[accounts[0].group as Icon].icon : 'Bank'}
+          />
+          <div className="flex-fill text-truncate fw-normal fs-5">{t(`account.${type}`)}</div>
+        </div>
       )}
     >
       <div className="d-flex gap-4 flex-column">

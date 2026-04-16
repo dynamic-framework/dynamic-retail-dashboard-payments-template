@@ -1,4 +1,4 @@
-import { DCollapse } from '@dynamic-framework/ui-react';
+import { DCollapse, DIcon } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppSelector } from '../store/hooks';
@@ -14,10 +14,17 @@ export default function BillCategory() {
     <DCollapse
       className="shadow-sm rounded"
       defaultCollapsed={false}
+      iconOpen="Plus"
+      iconClose="Minus"
       Component={(
-        <h5 className="text-truncate fw-semibold">
-          {t('bills.title')}
-        </h5>
+        <div className="d-flex gap-2 align-items-center category-header">
+          <DIcon
+            hasCircle
+            color="primary"
+            icon="Receipt"
+          />
+          <div className="flex-fill text-truncate fw-normal fs-5">{t('bills.title')}</div>
+        </div>
       )}
     >
       <div className="d-flex flex-column gap-4">
