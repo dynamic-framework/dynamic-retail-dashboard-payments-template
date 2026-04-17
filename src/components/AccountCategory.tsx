@@ -39,7 +39,7 @@ export default function AccountCategory({ type, accounts }: Props) {
         </div>
       )}
     >
-      <div className="d-flex gap-4 flex-column">
+      <div className="d-flex flex-column category-accounts">
         {accounts.map((account) => (
           <AccountItem
             type={type}

@@ -2,7 +2,7 @@
 
 .dashboard-payments,
 .d-portal {
-  .text-balance {
-    text-wrap: balance;
+  .category-item-container:not(:last-child) {
+    border-bottom: 1px solid var(--bs-border-color);
   }
 }

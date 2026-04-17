@@ -9,7 +9,7 @@ export default function CategoryList() {
   const accountLoans = useAppSelector(getAccountLoans);
 
   return (
-    <div className="d-flex flex-column gap-4">
+    <div className="d-flex flex-column gap-4 fade-in">
       <AccountCategory
         type="credit-card"
         accounts={accountCards}
