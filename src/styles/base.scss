@@ -5,4 +5,9 @@
   .category-item-container:not(:last-child) {
     border-bottom: 1px solid var(--bs-border-color);
   }
+  .expanded {
+    .collapse-button {
+      border-bottom: 1px solid var(--#{$prefix}border-color);
+    }
+  }
 }
